@@ -1,0 +1,35 @@
+
+<!--home.wxml-->
+<view class="calBox" style="height:100%">
+  <view class="cal2">
+    <view class="num-show">
+      <textarea id="result" class="result">{{text}}</textarea>
+    </view>
+    <view class="" style="height:100%">
+      <view class="num color-115" bindtap="clear">C</view>
+      <view class="num color-115">+-</view>
+      <view class="num color-115" bindtap="divide">÷</view>
+      <view class="num color-115" bindtap="multiply">×</view>
+
+      <view class="num" bindtap="number7">7</view>
+      <view class="num" bindtap="number8">8</view>
+      <view class="num" bindtap="number9">9</view>
+      <view class="num color-115" bindtap="subtract">-</view>
+
+      <view class="num" bindtap="number4">4</view>
+      <view class="num" bindtap="number5">5</view>
+      <view class="num" bindtap="number6">6</view>
+      <view class="num color-115" bindtap="add">+</view>
+
+      
+      <view class="num" bindtap="number1">1</view>
+      <view class="num" bindtap="number2">2</view>
+      <view class="num" bindtap="number3">3</view>
+
+      <view class="num num-0" bindtap="number0">0</view>
+      <view class="num" bindtap="point">.</view>
+      <view class="num num-eq" bindtap="equals">=</view>
+
+    </view>
+  </view>
+</view>
