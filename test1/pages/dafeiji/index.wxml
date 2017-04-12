@@ -1,0 +1,24 @@
+<!--pages/dafeiji/index.wxml-->
+<!--<text>pages/dafeiji/index.wxml</text>-->
+
+<view class="contentdiv" id="contentdiv">
+    <view class="startdiv" id="startdiv">
+        <button onclick="begin()">开始游戏</button>
+    </view>
+    <view id="maindiv">
+        <view id="scorediv">
+            <label>分数：</label>
+            <label id="label">0</label>
+        </view>
+        <view id="suspenddiv">
+            <button>继续</button><br/>
+            <button>重新开始</button><br/>
+            <button>回到主页</button>
+        </view>
+        <view id="enddiv">
+            <p class="plantext">飞机大战分数</p>
+            <p id="planscore">0</p>
+            <view><button onclick="jixu()">继续</button></view>
+        </view>
+    </view>
+</view>

@@ -1,14 +1,41 @@
 {
-  "pages":[
-    "pages/home/home",
-    "pages/index/index",
-    "pages/logs/logs"
+  "pages": [
+
+
+
     
+    "pages/dafeiji/index",
+    "pages/home/home",
+
+    "pages/index/index",
+
+    "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+    "navigationBarTitleText": "赵树学的小程序",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "image/icon_component.png",
+        "selectedIconPath": "image/icon_component_HL.png",
+        "text": "计算器"
+      },
+      {
+        "pagePath": "pages/dafeiji/index",
+        "iconPath": "image/icon_API.png",
+        "selectedIconPath": "image/icon_API_HL.png",
+        "text": "打飞机"
+      }
+    ]
+  },
+  "debug": true
 }

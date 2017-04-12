@@ -23,5 +23,9 @@ Page({
         userInfo:userInfo
       })
     })
+
+    // wx.navigateTo({
+    //   url: '../dafeiji/index'
+    // })
   }
 })
