@@ -2,10 +2,10 @@
 <!--<text>pages/dafeiji/index.wxml</text>-->
 
 <view class="contentdiv" id="contentdiv">
-    <view class="startdiv" id="startdiv">
-        <button onclick="begin()">开始游戏</button>
+    <view class="startdiv" id="startdiv" style="display : {{startdivStyleDisplay}}; background-image: url({{backgroundImageUrl}});">
+        <button bindtap="begin" onclick="begin()">开始游戏</button>
     </view>
-    <view id="maindiv">
+    <view id="maindiv"  style="display : {{maindivStyleDisplay}}; background-position-y: {{backgroundPositionY}}px; background-image:url({{backgroundImageUrl2}})" >
         <view id="scorediv">
             <label>分数：</label>
             <label id="label">0</label>
@@ -20,5 +20,8 @@
             <p id="planscore">0</p>
             <view><button onclick="jixu()">继续</button></view>
         </view>
+
+
+        <image src="{{imagenode.src}}" mode="{{imagenode.mode}}" id="ourplan" style="left: {{imagenode.left}}; top: {{imagenode.top}}; display: block; height: 80px; width: 66px;"></image>
     </view>
 </view>
