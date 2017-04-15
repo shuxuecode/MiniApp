@@ -1,0 +1,61 @@
+
+<!--pages/puzzle/main.wxml-->
+
+<!--<text>pages/puzzle/main.wxml</text>-->
+<view class="container2" style="height:{{containerHeight}}px;">
+  <view class="control">
+
+    <!--游戏控制区-->
+    <view>
+      <text class="timeText">总用时</text>
+      <text class="timer">{{timerInnerHTML}}</text>
+    </view>
+
+    <!--显示游戏时间区域-->
+    <view>
+      <view class="start" bindtap="startGame">{{startInnerHTML}}</view>
+      <view class="reset" bindtap="resetGame">重来</view>
+    </view>
+
+    <!--显示控制按钮区域-->
+  </view>
+
+  <!--最外面的DIV，用来包含里面的结构-->
+  <view class="game" style="height:{{containerHeight}}px">
+
+    <!--游戏区，也就是大DIV方块-->
+    <view class="d1" style="left : {{d1StyleLeft}}px; top : {{d1StyleTop}}px; height : {{viewHeight}}px; font-size : {{fontSize}}px; line-height : {{lineHeight}}px; " onclick="move(1)" bindtap="move1">
+      <image style="width: {{imageWidth}}px; height: {{imageHeight}}px; position:absolute; left: 0px; top: 0px;" mode="{{imageMode}}" src="{{imageSrc}}"></image>
+
+      <!--1-->
+    </view>
+
+    <!--小DIV，也就是8个小方块。当点击的时候执行move()函数，参数是显示的编号，-->
+
+    <!--这样我们就知道点击了那个方块-->
+    <view class="d2" style="left : {{d2StyleLeft}}px; top : {{d2StyleTop}}px; height : {{viewHeight}}px; font-size : {{fontSize}}px; line-height : {{lineHeight}}px; " onclick="move(2)" bindtap="move2">
+      <image style="width: {{imageWidth}}px; height: {{imageHeight}}px; position:absolute; left: -{{d2PositionX}}px; top: 0px;" mode="{{imageMode}}" src="{{imageSrc}}"></image>
+
+      <!--2-->
+    </view>
+    <view class="d3" style="left : {{d3StyleLeft}}px; top : {{d3StyleTop}}px; height : {{viewHeight}}px; font-size : {{fontSize}}px; line-height : {{lineHeight}}px; " onclick="move(3)" bindtap="move3">
+      <image style="width: {{imageWidth}}px; height: {{imageHeight}}px; position:absolute; left: -{{d3PositionX}}px; top: 0px;" mode="{{imageMode}}" src="{{imageSrc}}"></image>
+    </view>
+    <view class="d4" style="left : {{d4StyleLeft}}px; top : {{d4StyleTop}}px; height : {{viewHeight}}px; font-size : {{fontSize}}px; line-height : {{lineHeight}}px; " onclick="move(4)" bindtap="move4">
+      <image style="width: {{imageWidth}}px; height: {{imageHeight}}px; position:absolute; left: -{{d4PositionX}}px; top: -{{d4PositionY}}px;" mode="{{imageMode}}" src="{{imageSrc}}"></image>
+    </view>
+    <view class="d5" style="left : {{d5StyleLeft}}px; top : {{d5StyleTop}}px; height : {{viewHeight}}px; font-size : {{fontSize}}px; line-height : {{lineHeight}}px; " onclick="move(5)" bindtap="move5">
+      <image style="width: {{imageWidth}}px; height: {{imageHeight}}px; position:absolute; left: -{{d5PositionX}}px; top: -{{d5PositionY}}px;" mode="{{imageMode}}" src="{{imageSrc}}"></image>
+    </view>
+    <view class="d6" style="left : {{d6StyleLeft}}px; top : {{d6StyleTop}}px; height : {{viewHeight}}px; font-size : {{fontSize}}px; line-height : {{lineHeight}}px; " onclick="move(6)" bindtap="move6">
+      <image style="width: {{imageWidth}}px; height: {{imageHeight}}px; position:absolute; left: -{{d6PositionX}}px; top: -{{d6PositionY}}px;" mode="{{imageMode}}" src="{{imageSrc}}"></image>
+    </view>
+    <view class="d7" style="left : {{d7StyleLeft}}px; top : {{d7StyleTop}}px; height : {{viewHeight}}px; font-size : {{fontSize}}px; line-height : {{lineHeight}}px; " onclick="move(7)" bindtap="move7">
+      <image style="width: {{imageWidth}}px; height: {{imageHeight}}px; position:absolute; left: -{{d7PositionX}}px; top: -{{d7PositionY}}px;" mode="{{imageMode}}" src="{{imageSrc}}"></image>
+    </view>
+    <view class="d8" style="left : {{d8StyleLeft}}px; top : {{d8StyleTop}}px; height : {{viewHeight}}px; font-size : {{fontSize}}px; line-height : {{lineHeight}}px; " onclick="move(8)" bindtap="move8">
+      <image style="width: {{imageWidth}}px; height: {{imageHeight}}px; position:absolute; left: -{{d8PositionX}}px; top: -{{d8PositionY}}px;" mode="{{imageMode}}" src="{{imageSrc}}"></image>
+    </view>
+  </view>
+  <image style="width: 100px; height: 100px; position:absolute;left: 66%" mode="aspectFit" src="{{imageSrc}}" bindtap="chooseImage"></image>
+</view>

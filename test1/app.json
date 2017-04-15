@@ -3,7 +3,7 @@
 
 
 
-    
+    "pages/puzzle/main",
     "pages/dafeiji/index",
     "pages/home/home",
 
@@ -34,6 +34,12 @@
         "iconPath": "image/icon_API.png",
         "selectedIconPath": "image/icon_API_HL.png",
         "text": "打飞机"
+      },
+      {
+        "pagePath": "pages/puzzle/main",
+        "iconPath": "image/icon_API.png",
+        "selectedIconPath": "image/icon_API_HL.png",
+        "text": "拼图"
       }
     ]
   },
