@@ -2,12 +2,14 @@
   "pages": [
 
 
-
+    "pages/demo/demo",
+    
     "pages/puzzle/main",
-    "pages/dafeiji/index",
+    
     "pages/home/home",
 
     "pages/index/index",
+    "pages/dafeiji/index",
 
     "pages/logs/logs"
   ],
@@ -15,7 +17,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "赵树学的小程序",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#7A7E83",
@@ -28,12 +31,6 @@
         "iconPath": "image/icon_component.png",
         "selectedIconPath": "image/icon_component_HL.png",
         "text": "计算器"
-      },
-      {
-        "pagePath": "pages/dafeiji/index",
-        "iconPath": "image/icon_API.png",
-        "selectedIconPath": "image/icon_API_HL.png",
-        "text": "打飞机"
       },
       {
         "pagePath": "pages/puzzle/main",

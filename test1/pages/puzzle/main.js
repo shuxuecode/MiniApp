@@ -463,6 +463,16 @@ Page({
     // 页面关闭
   },
 
+  onPullDownRefresh: function(){
+
+    console.log('刷新');
+    reset(this);
+  },
+
+  reloadPage: function(){
+    console.log(wx)
+  },
+
   move1: function () {
     move(this, 1);
   },

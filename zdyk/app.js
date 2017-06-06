@@ -28,17 +28,3 @@ App({
     userInfo:null
   }
 })
-
-
-
-/*
-
-appId    wxd521b31771fdaeaf
-
-appsecret   ad1a402382d28d03d1d82a53b043ea65
-
-
-
-
-
-*/

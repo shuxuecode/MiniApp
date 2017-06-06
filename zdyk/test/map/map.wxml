@@ -1,0 +1,3 @@
+<!--map.wxml-->
+<text>map.wxml</text>
+<map id="map" scale="14" bindcontroltap="controltap" bindmarkertap="markertap" bindregionchange="regionchange" show-location style="width: 100%; height: 500px;"></map>

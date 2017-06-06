@@ -7,7 +7,7 @@
 
     <!--游戏控制区-->
     <view>
-      <text class="timeText">总用时</text>
+      <text class="timeText" bindtap="reloadPage">总用时</text>
       <text class="timer">{{timerInnerHTML}}</text>
     </view>
 

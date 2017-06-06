@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "weshop/home/index",
+    "pages/index/index",
+    "pages/logs/logs",
+    "test/map/map",
+    "test/music/index",
+    "test/swiper/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

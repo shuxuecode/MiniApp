@@ -1,0 +1,8 @@
+<view class="classname">
+
+
+<button bindtap="zhao">点击</button>
+
+
+
+</view>
