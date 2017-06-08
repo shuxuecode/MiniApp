@@ -14,12 +14,33 @@ Page({
     autoplay: true,
     interval: 2000,
     duration: 1000,
+
+    dataList:[]
+
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    var that = this;
+
+    wx.request({
+      url: 'https://zhaoshuxue.github.io/html/data/list.json', //仅为示例，并非真实的接口地址
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data)
+          that.setData({
+          dataList: res.data
+          });
+      }
+    })
+
+
   
   },
 
