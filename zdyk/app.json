@@ -8,9 +8,11 @@
     "test/swiper/index"
   ],
   "window": {
+    "navigationBarBackgroundColor": "#DD443A",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "中大眼科",
+    "backgroundColor": "#ffffff",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "enablePullDownRefresh": true
   }
 }

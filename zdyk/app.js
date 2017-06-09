@@ -13,7 +13,10 @@ App({
     }else{
       //调用登录接口
       wx.login({
-        success: function () {
+        success: function (result) {
+          // console.log(result);
+          // console.log(result.code);
+          
           wx.getUserInfo({
             success: function (res) {
               that.globalData.userInfo = res.userInfo

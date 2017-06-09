@@ -1,4 +1,6 @@
 // index.js
+//获取应用实例
+// var app = getApp()
 Page({
 
   /**
@@ -12,10 +14,13 @@ Page({
     ],
     indicatorDots: true,
     autoplay: true,
-    interval: 2000,
+    interval: 4000,
     duration: 1000,
+    swiperHeight: 250,
 
-    dataList:[]
+    dataList:[],
+
+    userInfo: {}
 
     
   },
@@ -27,13 +32,25 @@ Page({
 
     var that = this;
 
+    wx.getSystemInfo({
+      success: function (res) {
+        var windowWidth = res.windowWidth;
+        // console.log(windowWidth);
+        var h = parseInt(windowWidth / 8.64 * 6)
+        that.setData({
+          swiperHeight: h
+        });
+
+      }
+    })
+
     wx.request({
       url: 'https://zhaoshuxue.github.io/html/data/list.json', //仅为示例，并非真实的接口地址
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res.data)
+        // console.log(res.data)
           that.setData({
           dataList: res.data
           });
@@ -41,7 +58,19 @@ Page({
     })
 
 
-  
+    wx.request({
+      url: 'https://zhaoshuxue.github.io/html/data/list2.json', 
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        // console.log(res)
+        that.setData({
+          imgUrls : res.data
+        });
+      }
+    })
+
   },
 
   /**
@@ -76,7 +105,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    console.log(1);
   },
 
   /**

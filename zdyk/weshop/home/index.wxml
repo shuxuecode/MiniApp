@@ -1,9 +1,8 @@
 <!--index.wxml-->
-<text>index.wxml</text>
-<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}">
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:{{swiperHeight}}px;">
+  <block wx:for="{{imgUrls}}"  wx:key="imgUrlArray">
     <swiper-item>
-      <image src="{{item}}" class="slide-image" style="width:100%; height:150px;" />
+      <image mode="aspectFill" src="{{item}}" style="width:100%; height:100%;" />
     </swiper-item>
   </block>
 </swiper>
@@ -12,7 +11,7 @@
 
 
 
-<view wx:for="{{dataList}}">
+<view wx:for="{{dataList}}" wx:key="dataListObj">
 
   <view class="view-1">
     <view class="view-img-1">

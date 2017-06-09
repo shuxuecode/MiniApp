@@ -4,6 +4,10 @@ page {
   font-family: Microsoft YaHei;
 }
 
+swiper {
+  height: 250px;
+}
+
 .view-1 {
   display: flex;
 }
@@ -13,20 +17,23 @@ page {
   width: 35%;
 }
 
-
 .view-detail {
-  float:left; width:65%; position:relative;
+  float: left;
+  width: 65%;
+  position: relative;
+  border-top:1px solid #eeeeee;
 }
 
 .view-detail .view-text {
-
-  font-size:16px; font-weight:bold; margin-left:10px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 10px;
 }
 
 .jiage {
   position: absolute;
   bottom: 0px;
-  color: #eb5211;
+  color: #FF5000;
   font-size: 16px;
   margin-left: 10px;
   margin-bottom: 12px;
@@ -34,13 +41,17 @@ page {
 
 .price-icon {
   float: left;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
   font-family: arial;
   padding-right: 2px;
+  
 }
 
 .font-num {
   float: left;
-  font-family: avenir arial;
+  margin-left:8px;
 }
 
 .flex-wrp {
