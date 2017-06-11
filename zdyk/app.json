@@ -2,6 +2,7 @@
   "pages": [
     "weshop/home/index",
     "pages/index/index",
+    
     "pages/logs/logs",
     "test/map/map",
     "test/music/index",
@@ -13,6 +14,6 @@
     "navigationBarTitleText": "中大眼科",
     "backgroundColor": "#ffffff",
     "backgroundTextStyle": "light",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": false
   }
 }

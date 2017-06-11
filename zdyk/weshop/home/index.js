@@ -1,6 +1,11 @@
 // index.js
+
+var WXBizDataCrypt = require('../../utils/RdWXBizDataCrypt.js');
+var AppId = 'wxbc6e55a1c09739ad'
+var AppSecret = 'a327e497c35bfba091939eac933b10ce'
+
 //获取应用实例
-// var app = getApp()
+var app = getApp()
 Page({
 
   /**
@@ -68,6 +73,73 @@ Page({
         that.setData({
           imgUrls : res.data
         });
+      }
+    })
+
+
+    //调用应用实例的方法获取全局数据
+    app.getUserInfo(function (userInfo) {
+      //更新数据
+      that.setData({
+        userInfo: userInfo
+      })
+
+      console.log(userInfo)
+      
+      
+      // wx.showToast({
+      //   title: userInfo.nickName,
+      //   icon: 'success',
+      //   duration: 2000
+      // })
+    })
+
+
+    // 获取运动步数， todo  需要解密
+    wx.getWeRunData({
+      success(res) {
+
+        var code = wx.getStorageSync('code');
+
+        console.log(code)
+
+        /*开始*/
+        //发起网络请求
+        wx.request({
+          url: 'https://api.weixin.qq.com/sns/jscode2session',
+          data: {
+            appid: AppId,
+            secret: AppSecret,
+            js_code: code,
+            grant_type: 'authorization_code'
+          },
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          method: 'GET',
+          success: function (res) {
+
+            console.log(res)
+
+
+            // var pc = new WXBizDataCrypt(AppId, res.data.session_key)
+            // wx.getUserInfo({
+            //   success: function (res) {
+            //     var data = pc.decryptData(res.encryptedData, res.iv)
+            //     console.log('解密后 data: ', data)
+            //   }
+            // })
+
+
+          },
+          fail: function (res) { },
+          complete: function (res) { }
+        });
+
+        /*结束*/
+
+        const encryptedData = res.encryptedData
+        console.log(encryptedData)
       }
     })
 
