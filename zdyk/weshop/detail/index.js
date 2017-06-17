@@ -1,11 +1,4 @@
 // index.js
-
-var WXBizDataCrypt = require('../../utils/RdWXBizDataCrypt.js');
-var AppId = 'wxbc6e55a1c09739ad'
-var AppSecret = 'a327e497c35bfba091939eac933b10ce'
-
-//获取应用实例
-var app = getApp()
 Page({
 
   /**
@@ -23,17 +16,21 @@ Page({
     duration: 1000,
     swiperHeight: 250,
 
-    dataList:[],
+    good:{
+      text: '-',
+      price: '00.00',
+      detail: ''
+    },
 
     userInfo: {}
-
-    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    console.log(options)
 
     var that = this;
 
@@ -49,58 +46,44 @@ Page({
       }
     })
 
-    wx.request({
-      url: 'https://zhaoshuxue.github.io/html/data/list.json', //仅为示例，并非真实的接口地址
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        // console.log(res.data)
-          that.setData({
-          dataList: res.data
-          });
-      }
-    })
-
 
     wx.request({
-      url: 'https://zhaoshuxue.github.io/html/data/list2.json', 
+      url: 'https://zhaoshuxue.github.io/html/data/list3.json',
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
         // console.log(res)
         that.setData({
-          imgUrls : res.data
+          imgUrls: res.data
         });
       }
     })
 
 
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function (userInfo) {
-      //更新数据
-      that.setData({
-        userInfo: userInfo
-      })
-
-      console.log(userInfo)
-      
-      
-      // wx.showToast({
-      //   title: userInfo.nickName,
-      //   icon: 'success',
-      //   duration: 2000
-      // })
+    wx.request({
+      url: 'https://zhaoshuxue.github.io/html/data/data.json',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        // console.log(res)
+        that.setData({
+          good: res.data
+        });
+      }
     })
 
+
+
+    /** end */
   },
 
-
-  gotoDetail: function (){
-    wx.navigateTo({
-      url: '/weshop/detail/index?id=1'
-    })
+  goBack: function (){
+    wx.navigateBack()
+    // wx.navigateBack({
+    //   delta: 1
+    // })
   },
 
   /**
@@ -135,7 +118,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    console.log(1);
+  
   },
 
   /**

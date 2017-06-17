@@ -1,8 +1,10 @@
 {
   "pages": [
-    "weshop/home/index",
-    "pages/index/index",
     
+    
+    "weshop/home/index",
+    "weshop/detail/index",
+    "pages/index/index",
     "pages/logs/logs",
     "test/map/map",
     "test/music/index",
@@ -15,5 +17,31 @@
     "backgroundColor": "#ffffff",
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "weshop/home/index",
+        "text": "首页",
+        "iconPath": "images/1.png",
+        "selectedIconPath": "images/2.png"
+      },
+      {
+        "pagePath": "test/map/map",
+        "text": "购物车",
+        "iconPath": "images/3.png",
+        "selectedIconPath": "images/4.png"
+      },
+      {
+        "pagePath": "test/music/index",
+        "text": "个人中心",
+        "iconPath": "images/5.png",
+        "selectedIconPath": "images/6.png"
+      }
+    ]
   }
 }

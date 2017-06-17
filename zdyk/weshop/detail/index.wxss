@@ -1,0 +1,11 @@
+/* index.wxss */
+
+page {
+  font-family: Microsoft YaHei;
+}
+
+.view-1{
+  border-top: 1px solid #cccccc;
+  padding: 15px;
+}
+
