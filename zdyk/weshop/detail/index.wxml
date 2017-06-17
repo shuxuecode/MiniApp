@@ -24,3 +24,19 @@
 
 
 </view>
+
+<view class="view-1">
+  <view class="">商品说明</view>
+  <view style="font-size:14px">{{good.detail}}</view>
+
+
+</view>
+
+<view class="view-1">
+  <view class="">商品说明</view>
+  <view style="font-size:14px">{{good.detail}}</view>
+
+
+</view>
+
+<view class="zsx">购买</view>

@@ -2,8 +2,8 @@
   "pages": [
     
     
-    "weshop/home/index",
     "weshop/detail/index",
+    "weshop/home/index",
     "pages/index/index",
     "pages/logs/logs",
     "test/map/map",
