@@ -1,0 +1,47 @@
+<!--index.wxml-->
+
+
+<view class="">
+  <text>编辑</text>
+</view>
+
+
+
+<checkbox-group bindchange="checkboxChange">
+  <label class="checkbox" wx:for="{{dataList}}" wx:key="dataListObj">
+    <view class="view-checkbox">
+     <checkbox value="{{item.id}}" checked="{{item.checked}}" />
+    </view>
+    <view class="view-1" bindtap="" bindlongtap="gotoDetail">
+      <view class="view-img-1">
+        <image mode="widthFix" src="{{item.imgUrl}}" style="width:80%; height:80%;"></image>
+      </view>
+      <view class="view-detail">
+        <view class="view-text">{{item.text}}</view>
+        <view class="jiage">
+          <view class="price-icon">¥</view>
+          <view class="font-num">{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+  </label>
+</checkbox-group>
+
+
+
+
+
+<view style="height:50px;">
+  <!--占位-->
+</view>
+<view class="view-btm">
+  <view class="view-btm-a">
+    <checkbox data-id="zsx" value="0" checked="" bindtap="selectAll"/>全选
+  </view>
+  <view class="view-btm-b">
+    <text>合计：</text>
+    <text class="v-b">￥</text>
+    <text class="v-b">{{totalPrice}}</text>
+  </view>
+  <view class="view-btm-c" bindtap="">结算</view>
+</view>

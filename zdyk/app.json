@@ -1,10 +1,11 @@
 {
   "pages": [
-    
+    "weshop/home/index",
+    "weshop/about/index",
+    "pages/index/index",
+    "weshop/cart/index",
     
     "weshop/detail/index",
-    "weshop/home/index",
-    "pages/index/index",
     "pages/logs/logs",
     "test/map/map",
     "test/music/index",
@@ -31,13 +32,13 @@
         "selectedIconPath": "images/2.png"
       },
       {
-        "pagePath": "test/map/map",
+        "pagePath": "weshop/cart/index",
         "text": "购物车",
         "iconPath": "images/3.png",
         "selectedIconPath": "images/4.png"
       },
       {
-        "pagePath": "test/music/index",
+        "pagePath": "weshop/about/index",
         "text": "个人中心",
         "iconPath": "images/5.png",
         "selectedIconPath": "images/6.png"

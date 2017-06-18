@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<text bindtap="goBack">返回</text>
+<view class="backCls" bindtap="goBack">返回上一页</view>
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:{{swiperHeight}}px;">
   <block wx:for="{{imgUrls}}" wx:key="imgUrlArray">
     <swiper-item>
@@ -10,20 +10,14 @@
 
 <view class="view-1">
   <view class="">{{good.text}}</view>
-  <view class="">
-    <view class="">¥</view>
-    <view class="">{{good.price}}</view>
+  <view class="v-price-a">
+    <view class="v-price-icon">¥</view>
+    <view class="v-price-num">{{good.price}}</view>
   </view>
 
 </view>
 
 
-<view class="view-1">
-  <view class="">商品说明</view>
-  <view style="font-size:14px">{{good.detail}}</view>
-
-
-</view>
 
 <view class="view-1">
   <view class="">商品说明</view>
@@ -39,4 +33,19 @@
 
 </view>
 
-<view class="zsx">购买</view>
+<view class="view-1">
+  <view class="">商品说明</view>
+  <view style="font-size:14px">你好\n我很好\n哈哈</view>
+
+
+</view>
+
+
+<view style="height:50px;">
+<!--占位-->
+</view>
+<view class="zsx">
+  <view class="home-page" bindtap="gotoHome">首页</view>
+  <view class="cart" bindtap="addCart">加入购物车</view>
+  <view class="bay-now" bindtap="bay">立即购买</view>
+</view>

@@ -1,0 +1,27 @@
+/* index.wxss */
+page {
+  font-family: Microsoft YaHei;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  margin-left: 50rpx;
+}
+
+.userinfo-nickname {
+  /*color: #aaa;*/
+  font-size: 16px;
+}
+
+.my-order{
+  border-top: 1px solid #dddddd;
+}

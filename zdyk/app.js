@@ -34,8 +34,8 @@ App({
               console.log(res);
               that.globalData.userInfo = res.userInfo
               that.globalData.userData = res
-              // typeof cb == "function" && cb(that.globalData.userInfo)
-              typeof cb == "function" && cb(that.globalData.userData)
+              typeof cb == "function" && cb(that.globalData.userInfo)
+              // typeof cb == "function" && cb(that.globalData.userData)
               
             }
           })

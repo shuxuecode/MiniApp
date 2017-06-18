@@ -27,3 +27,9 @@
   </view>
 
 </view>
+
+<view class="btm-view">
+  <text>———————————</text>
+  <text style="margin:0 12px;">已经到最底了</text>
+  <text>———————————</text>
+</view>

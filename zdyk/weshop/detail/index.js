@@ -86,6 +86,39 @@ Page({
     // })
   },
 
+  gotoHome: function(){
+
+    wx.switchTab({
+      url: '/weshop/home/index'
+    })
+  },
+
+  addCart:function(){
+    wx.showModal({
+      content: "加入购物车成功",
+      confirmText: "立即结账",
+      cancelText: "再逛逛",
+      success: function(){
+
+      },
+      fail: function(){
+
+      }
+    })
+  },
+
+  bay: function(){
+
+    wx.showModal({
+      content: "购买成功，立即结账",
+      showCancel: false,
+      confirmText: "确定",
+      success: function(){
+
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
