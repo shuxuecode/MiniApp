@@ -1,0 +1,18 @@
+/* index.wxss */
+
+page{
+  font-family: '黑体'
+}
+
+.text-cls{
+  display: inline-block;
+  width: 20%;
+  font-size: 18px;
+
+}
+
+input{
+  display: inline-block;
+  width: 80%;
+  font-size: 16px;
+}

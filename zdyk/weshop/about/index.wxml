@@ -6,11 +6,14 @@
 <view class="userinfo" >
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <text bindtap="gotoAddress">收货地址</text>
 </view>
+
+
 
 <view class="my-order">
 
-  <view class="">我的订单</view>
+  <view class="" bindtap="zhao">我的订单</view>
   <view class=""></view>
 
 </view>

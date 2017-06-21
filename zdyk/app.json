@@ -1,14 +1,17 @@
 {
   "pages": [
+    
+    
     "weshop/home/index",
     "weshop/about/index",
     "pages/index/index",
     "weshop/cart/index",
-    
     "weshop/detail/index",
+    "weshop/address/index",
     "pages/logs/logs",
     "test/map/map",
     "test/music/index",
+    "test/picker/index",
     "test/swiper/index"
   ],
   "window": {
