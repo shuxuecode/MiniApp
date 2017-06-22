@@ -8,7 +8,7 @@ os.system("git pull")
 
 os.system("git add .")
 
-os.system("git commit -m commitByZsx")
+os.system("git commit -m commitBy%date:~0,4%-%date:~5,2%-%date:~8,2%-%time:~0,2%-%time:~3,2%-%time:~6,2%")
 
 os.system("git push")
 
