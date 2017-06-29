@@ -50,8 +50,8 @@ Page({
     })
 
     wx.request({
-      url: 'https://zhaoshuxue.github.io/html/data/list.json', //仅为示例，并非真实的接口地址
-      
+      // url: 'https://zhaoshuxue.github.io/html/data/list.json',
+      url: 'https://zdyk.frp.lu8.win/miniapp/goods.json?userId=zhao',      
       header: {
         'content-type': 'application/json'
       },
@@ -66,15 +66,27 @@ Page({
 
     wx.request({
       // url: 'https://zhaoshuxue.github.io/html/data/list2.json', 
-      url: 'http://localhost:58080/miniapp/homeImages.json?userId=zhao',
+      url: 'https://zdyk.frp.lu8.win/miniapp/homeImages.json?userId=zhao',
       header: {
         'content-type': 'application/json'
       },
-      success: function (res) {
-        // console.log(res)
+      success: function (res, statusCode) {
         that.setData({
           imgUrls : res.data
         });
+      },
+      fail: function (data){
+        wx.request({
+          url: 'https://zhaoshuxue.github.io/html/data/list2.json',
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res, statusCode) {
+            that.setData({
+              imgUrls: res.data
+            });
+          }
+        })
       }
     })
 
@@ -99,9 +111,11 @@ Page({
   },
 
 
-  gotoDetail: function (){
+  gotoDetail: function (event){
+    var id = event.currentTarget.dataset.id;
+    // console.log(id)
     wx.navigateTo({
-      url: '/weshop/detail/index?id=1'
+      url: '/weshop/detail/index?id=' + id
     })
   },
 

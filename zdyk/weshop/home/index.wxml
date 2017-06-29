@@ -13,12 +13,12 @@
 
 <view wx:for="{{dataList}}" wx:key="dataListObj">
 
-  <view class="view-1" bindtap="gotoDetail">
+  <view class="view-1" bindtap="gotoDetail"  data-id="{{item.id}}">
     <view class="view-img-1">
-      <image mode="widthFix" src="{{item.imgUrl}}" style="width:100%; height:100%;"></image>
+      <image mode="widthFix" src="{{item.image}}" style="width:100%; height:100%;"></image>
     </view>
     <view class="view-detail">
-      <view class="view-text">{{item.text}}</view>
+      <view class="view-text">{{item.longName}}</view>
       <view class="jiage">
         <view class="price-icon">¥</view>
         <view class="font-num">{{item.price}}</view>

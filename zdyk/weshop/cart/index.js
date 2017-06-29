@@ -19,21 +19,31 @@ Page({
     var that = this;
 
     wx.request({
-      url: 'https://zhaoshuxue.github.io/html/data/list.json', //仅为示例，并非真实的接口地址
+      url: 'https://zdyk.frp.lu8.win/miniapp/shopCart.json',
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
-        // console.log(res.data)
-
         var dd = res.data;
         wx.setStorageSync('dataList', dd);
         that.setData({
           dataList: dd
         });
-        
-
-
+      },
+      fail: function(){
+        wx.request({
+          url: 'https://zhaoshuxue.github.io/html/data/list.json',
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            var dd = res.data;
+            wx.setStorageSync('dataList', dd);
+            that.setData({
+              dataList: dd
+            });
+          }
+        })
       }
     })
   },
@@ -100,6 +110,18 @@ Page({
         dataList: value
       });
     }
+  },
+
+  test: function(){
+    wx.request({
+      url: 'https://zdyk.frp.lu8.win/miniapp/goods.json?userId=zhao',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
   },
 
 

@@ -48,29 +48,57 @@ Page({
 
 
     wx.request({
-      url: 'https://zhaoshuxue.github.io/html/data/list3.json',
+      url: 'https://zdyk.frp.lu8.win/miniapp/detailImages.json?id=' + options.id,
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
-        // console.log(res)
+        var arr = new Array();
+        for(var i=0; i<res.data.length; i++){
+          arr.push(res.data[i].url);
+        }
         that.setData({
-          imgUrls: res.data
+          imgUrls: arr
         });
+      },
+      fail: function(){
+        wx.request({
+          url: 'https://zhaoshuxue.github.io/html/data/list3.json',
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            that.setData({
+              imgUrls: res.data
+            });
+          }
+        })
       }
     })
 
 
     wx.request({
-      url: 'https://zhaoshuxue.github.io/html/data/data.json',
+      url: 'https://zdyk.frp.lu8.win/miniapp/goodDetail.json?id=' + options.id,
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
-        // console.log(res)
         that.setData({
           good: res.data
         });
+      },
+      fail: function(){
+        wx.request({
+          url: 'https://zhaoshuxue.github.io/html/data/data.json',
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            that.setData({
+              good: res.data
+            });
+          }
+        })
       }
     })
 
@@ -93,7 +121,8 @@ Page({
     })
   },
 
-  addCart:function(){
+  addCart:function(event){
+    var id = event.currentTarget.dataset.id;
     wx.showModal({
       content: "加入购物车成功",
       confirmText: "立即结账",
@@ -107,8 +136,8 @@ Page({
     })
   },
 
-  bay: function(){
-
+  bay: function (event){
+    var id = event.currentTarget.dataset.id;
     wx.showModal({
       content: "购买成功，立即结账",
       showCancel: false,
