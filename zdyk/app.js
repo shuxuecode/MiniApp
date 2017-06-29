@@ -22,8 +22,8 @@ App({
       //调用登录接口
       wx.login({
         success: function (result) {
-          console.log(result);
-          console.log(result.code);
+          // console.log(result);
+          // console.log(result.code);
           
           //将 code 放入小程序缓存
           wx.setStorageSync('code', result.code)

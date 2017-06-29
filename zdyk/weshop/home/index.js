@@ -51,6 +51,7 @@ Page({
 
     wx.request({
       url: 'https://zhaoshuxue.github.io/html/data/list.json', //仅为示例，并非真实的接口地址
+      
       header: {
         'content-type': 'application/json'
       },
@@ -64,7 +65,8 @@ Page({
 
 
     wx.request({
-      url: 'https://zhaoshuxue.github.io/html/data/list2.json', 
+      // url: 'https://zhaoshuxue.github.io/html/data/list2.json', 
+      url: 'http://localhost:58080/miniapp/homeImages.json?userId=zhao',
       header: {
         'content-type': 'application/json'
       },
