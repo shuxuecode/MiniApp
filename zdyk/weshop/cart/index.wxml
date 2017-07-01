@@ -43,5 +43,5 @@
     <text class="v-b">￥</text>
     <text class="v-b">{{totalPrice}}</text>
   </view>
-  <view class="view-btm-c" bindtap="test">结算</view>
+  <view class="view-btm-c" bindtap="buyNow">结算</view>
 </view>

@@ -29,6 +29,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var baseUrl = wx.getStorageSync('baseUrl')
 
     console.log(options)
 
@@ -48,7 +49,7 @@ Page({
 
 
     wx.request({
-      url: 'https://zdyk.frp.lu8.win/miniapp/detailImages.json?id=' + options.id,
+      url: baseUrl + '/miniapp/detailImages.json?id=' + options.id,
       header: {
         'content-type': 'application/json'
       },
@@ -62,23 +63,13 @@ Page({
         });
       },
       fail: function(){
-        wx.request({
-          url: 'https://zhaoshuxue.github.io/html/data/list3.json',
-          header: {
-            'content-type': 'application/json'
-          },
-          success: function (res) {
-            that.setData({
-              imgUrls: res.data
-            });
-          }
-        })
+        
       }
     })
 
 
     wx.request({
-      url: 'https://zdyk.frp.lu8.win/miniapp/goodDetail.json?id=' + options.id,
+      url: baseUrl + '/miniapp/goodDetail.json?id=' + options.id,
       header: {
         'content-type': 'application/json'
       },
@@ -88,17 +79,7 @@ Page({
         });
       },
       fail: function(){
-        wx.request({
-          url: 'https://zhaoshuxue.github.io/html/data/data.json',
-          header: {
-            'content-type': 'application/json'
-          },
-          success: function (res) {
-            that.setData({
-              good: res.data
-            });
-          }
-        })
+        
       }
     })
 
@@ -122,22 +103,77 @@ Page({
   },
 
   addCart:function(event){
+    var baseUrl = wx.getStorageSync('baseUrl')
     var id = event.currentTarget.dataset.id;
+
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+
     wx.showModal({
       content: "加入购物车成功",
       confirmText: "立即结账",
       cancelText: "再逛逛",
-      success: function(){
+      cancelColor: "#DD443A",
+      success: function (res){
 
-      },
-      fail: function(){
+        wx.request({
+          url: baseUrl + '/miniapp/addCart.json',
+          data: {
+            userId: 1,
+            goodId: 4
+          },
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            console.log(res)
+          }
+        })
 
+        if (res.confirm) {
+          console.log('用户点击确定')
+
+          // 跳转到购物车页面
+          // wx.navigateTo({
+          //   url: '/weshop/cart/index'
+          // })
+
+          wx.switchTab({
+            url: '/weshop/cart/index'
+          })
+
+
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
       }
     })
   },
 
   bay: function (event){
     var id = event.currentTarget.dataset.id;
+
+    wx.showToast({
+      title: '正在跳转到结账页面...',
+      icon: 'loading',
+      mask: true,
+      duration: 10000
+    })
+
+    setTimeout(function(){
+      // wx.hideToast()
+    }, 10000)
+
+    wx.switchTab({
+      url: '/weshop/cart/index'
+    })
+
+    /*
     wx.showModal({
       content: "购买成功，立即结账",
       showCancel: false,
@@ -146,6 +182,9 @@ Page({
 
       }
     })
+    */
+
+
   },
 
   /**

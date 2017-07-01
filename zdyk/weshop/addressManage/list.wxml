@@ -1,0 +1,22 @@
+<!--list.wxml-->
+<text>向左滑动进入编辑页面</text>
+
+
+<view wx:for="{{addresss}}" wx:key="addressList">
+
+  <view class="v-a" bindtap="select" bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="touchend" data-id="{{item.id}}">
+    <view class="v-a-1">
+      <text>收货人：</text>
+      <text>{{item.user_name}}</text>
+      <text class="phone-num">{{item.phone_number}}</text>
+    </view>
+    <view class="v-b">
+      <view class="v-b-1">
+        <text>收货地址：</text>
+        <text>{{item.address_a}}{{item.address_b}}{{item.address_c}}{{item.address_d}}</text>
+      </view>
+    </view>
+    <view class=""></view>
+  </view>
+
+</view>

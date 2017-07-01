@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<view class="backCls">确认订单</view>
+<view class="v-a" bindtap="gotoAddressPage">
+  <view class="v-a-1">
+    <text>收货人：</text>
+    <text>姓名</text>
+    <text class="phone-num">18800009988</text>
+  </view>
+  <view class="v-b">
+    <view class="v-b-1">
+      <text>收货地址：</text>
+      <text>收货地址：</text>
+      <text class="v-b-1-3">修改</text>
+    </view>
+  </view>
+  <view class=""></view>
+</view>
+
+<view class="">
+  <view class="view-1" data-id="{{good.id}}">
+    <view class="view-img-1">
+      <image mode="widthFix" src="{{good.image}}" style="width:100%; height:100%;"></image>
+    </view>
+    <view class="view-detail">
+      <view class="view-text">{{good.longName}}</view>
+      <view class="jiage">
+        <view class="price-icon">¥</view>
+        <view class="font-num">{{good.price}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="v-d" bindtap="selectDispatching">
+  <view class="v-d-1">配送方式：</view>
+  <image mode="scaleToFill" src="/images/right27-1.png"></image>
+  <view class="v-d-2">{{dispatchingType}}</view>
+</view>
+
+<view class="v-e">
+  <view class="">买家留言：</view>
+  <textarea class="v-msg" placeholder="选填"  auto-height />
+</view>
+
+
+<view style="height:50px;">
+<!--占位-->
+</view>
+<view class="view-btm">
+  <view class="view-btm-b">
+    <text>合计：</text>
+    <text class="v-b">￥</text>
+    <text class="v-b">{{good.price}}</text>
+  </view>
+  <view class="view-btm-c" bindtap="test">提交订单</view>
+</view>

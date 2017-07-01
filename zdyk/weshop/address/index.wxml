@@ -4,13 +4,13 @@
 <form>
   <view class="">
     <text class="text-cls">收货人</text>
-    <input type="text" placeholder="姓名" />
+    <input type="text" placeholder="姓名" value="{{userName}}"/>
 
   </view>
 
   <view class="">
     <text class="text-cls">手机号码</text>
-    <input type="text" placeholder="11位手机号" />
+    <input type="text" placeholder="11位手机号" value="{{phoneNumber}}" />
 
   </view>
 
@@ -24,7 +24,7 @@
 
   <view class="">
     <text class="text-cls">详细地址</text>
-    <input type="text" placeholder="街道门牌信息" />
+    <input type="text" placeholder="街道门牌信息" value="{{detail}}" />
 
   </view>
 

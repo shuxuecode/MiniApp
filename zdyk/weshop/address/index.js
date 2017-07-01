@@ -48,7 +48,10 @@ Page({
     dists: [],
     dist: '',
     value: [0, 0, 0],
-    datas: []
+    datas: [],
+    userName: '',
+    phoneNumber: '',
+    detail: ''
   },
 
   bindChange: function (e) {
@@ -131,13 +134,66 @@ Page({
   },
 
   save: function(){
-    wx.navigateBack()
+
+    wx.request({
+      url: 'test.php', //仅为示例，并非真实的接口地址
+      data: {
+        x: '',
+        y: ''
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data)
+        // 保存成功后返回
+        wx.navigateBack()
+      }
+    })
+
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    console.log(options)
+
+    var id = options.id;
+    if (id === "0") {
+
+    } else {
+      var baseUrl = wx.getStorageSync('baseUrl')
+      var that = this;
+      wx.request({
+        url: baseUrl + '/miniapp/getAddressById.json?id=' + id,
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          var dd = res.data;
+          that.setData({
+            prov: dd.address_a,
+            city: dd.address_b,
+            dist: dd.address_c,
+            userName: dd.user_name,
+            phoneNumber: dd.phone_number,
+            detail: dd.address_d
+          });
+        },
+        fail: function () {
+
+        }
+      })
+    }
+
+
+    /**
+     * 第二部分
+     */
+    
 
     var value = this.data.value;
 
@@ -193,8 +249,10 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function (options) {
+    
+
+
   },
 
   /**

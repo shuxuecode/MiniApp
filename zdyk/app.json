@@ -1,11 +1,11 @@
 {
   "pages": [
-    
-    
     "weshop/home/index",
+    "weshop/cart/index",
+    "weshop/payment/index",
+    "weshop/addressManage/list",
     "weshop/about/index",
     "pages/index/index",
-    "weshop/cart/index",
     "weshop/detail/index",
     "weshop/address/index",
     "pages/logs/logs",

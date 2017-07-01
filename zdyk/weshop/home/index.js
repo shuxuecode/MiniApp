@@ -35,6 +35,8 @@ Page({
    */
   onLoad: function (options) {
 
+    var baseUrl = wx.getStorageSync('baseUrl')
+
     var that = this;
 
     wx.getSystemInfo({
@@ -50,8 +52,7 @@ Page({
     })
 
     wx.request({
-      // url: 'https://zhaoshuxue.github.io/html/data/list.json',
-      url: 'https://zdyk.frp.lu8.win/miniapp/goods.json?userId=zhao',      
+      url: baseUrl + '/miniapp/goods.json?userId=zhao',
       header: {
         'content-type': 'application/json'
       },
@@ -65,8 +66,7 @@ Page({
 
 
     wx.request({
-      // url: 'https://zhaoshuxue.github.io/html/data/list2.json', 
-      url: 'https://zdyk.frp.lu8.win/miniapp/homeImages.json?userId=zhao',
+      url: baseUrl + '/miniapp/homeImages.json?userId=zhao',
       header: {
         'content-type': 'application/json'
       },
@@ -76,17 +76,7 @@ Page({
         });
       },
       fail: function (data){
-        wx.request({
-          url: 'https://zhaoshuxue.github.io/html/data/list2.json',
-          header: {
-            'content-type': 'application/json'
-          },
-          success: function (res, statusCode) {
-            that.setData({
-              imgUrls: res.data
-            });
-          }
-        })
+        
       }
     })
 

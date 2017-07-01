@@ -16,39 +16,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-
-    wx.request({
-      url: 'https://zdyk.frp.lu8.win/miniapp/shopCart.json',
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        var dd = res.data;
-        wx.setStorageSync('dataList', dd);
-        that.setData({
-          dataList: dd
-        });
-      },
-      fail: function(){
-        wx.request({
-          url: 'https://zhaoshuxue.github.io/html/data/list.json',
-          header: {
-            'content-type': 'application/json'
-          },
-          success: function (res) {
-            var dd = res.data;
-            wx.setStorageSync('dataList', dd);
-            that.setData({
-              dataList: dd
-            });
-          }
-        })
-      }
-    })
+    
   },
 
-  checkboxChange: function(e){
+  checkboxChange: function (e) {
     // console.log('checkbox发生change事件，携带value值为：', e.detail.value)
 
     var totalPrice = 0;
@@ -56,9 +27,9 @@ Page({
     var selectIds = e.detail.value;
 
     var list = this.data.dataList;
-    for(var i=0; i<list.length; i++){
+    for (var i = 0; i < list.length; i++) {
       var asdf = array_contain(selectIds, list[i].id);
-      if(asdf){
+      if (asdf) {
         var price = list[i].price;
         totalPrice = Number((totalPrice + parseFloat(price)).toFixed(2))
       }
@@ -71,24 +42,24 @@ Page({
 
   },
 
-  selectAll: function(e){
+  selectAll: function (e) {
     var that = this;
     var checked = true;
     //
-    if (isSelectAll){
+    if (isSelectAll) {
       checked = false;
       isSelectAll = false;
       that.setData({
         totalPrice: 0
       })
-    }else{
+    } else {
       checked = true;
       isSelectAll = true;
-      
-    }
-    
 
-    
+    }
+
+
+
     var value = wx.getStorageSync('dataList');
 
     if (value) {
@@ -99,12 +70,12 @@ Page({
         totalPrice = Number((totalPrice + parseFloat(price)).toFixed(2))
       }
 
-      if(checked){
+      if (checked) {
         that.setData({
           totalPrice: totalPrice
         })
       }
-      
+
 
       that.setData({
         dataList: value
@@ -112,15 +83,9 @@ Page({
     }
   },
 
-  test: function(){
-    wx.request({
-      url: 'https://zdyk.frp.lu8.win/miniapp/goods.json?userId=zhao',
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res)
-      }
+  buyNow: function (e) {
+    wx.navigateTo({
+      url: '/weshop/payment/index',
     })
   },
 
@@ -129,49 +94,69 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var baseUrl = wx.getStorageSync('baseUrl')
+    console.debug("进入购车车页面")
+    var that = this;
+
+    wx.request({
+      url: baseUrl + '/miniapp/shopCart.json',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        var dd = res.data;
+        console.log('重新加载成功')
+        wx.setStorageSync('dataList', dd);
+        that.setData({
+          dataList: dd
+        });
+      },
+      fail: function () {
+        
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })
 

@@ -27,7 +27,7 @@ Page({
   gotoAddress: function(){
 
     wx.navigateTo({
-      url: '/weshop/address/index',
+      url: '/weshop/address/index?id=0',
     })
 
   },

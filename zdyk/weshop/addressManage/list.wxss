@@ -1,0 +1,25 @@
+/* list.wxss */
+page {
+  font-family: Microsoft YaHei;
+}
+/*收货 start*/
+
+.v-a {
+  padding: 15px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.v-a-1 {
+  line-height: 50px;
+}
+
+.v-a-1 .phone-num {
+  float: right;
+}
+
+.v-b-1 {
+  font-size: 16px;
+}
+
+
+/*收货 end*/
