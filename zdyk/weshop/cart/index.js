@@ -84,8 +84,9 @@ Page({
   },
 
   buyNow: function (e) {
+    var totalPrice = this.data.totalPrice;
     wx.navigateTo({
-      url: '/weshop/payment/index',
+      url: '/weshop/payment/index?totalPrice=' + totalPrice,
     })
   },
 

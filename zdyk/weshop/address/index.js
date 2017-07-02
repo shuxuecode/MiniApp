@@ -34,6 +34,7 @@ var getDistricts = function (datas, province, city) {
 
 
 var cityData = require('data.js')
+var Util = require('../../utils/util.js');
 
 Page({
 
@@ -133,23 +134,50 @@ Page({
 
   },
 
-  save: function(){
+  onSubmit: function (e) {
+    console.log(e.detail.value)
+    this.setData({
+      userName: e.detail.value.userName,
+      phoneNumber: e.detail.value.phoneNumber,
+      detail: e.detail.value.detail
+    })
+  // },
+  // save: function(){
 
+    var that = this;
+    var userName = that.data.userName;
+    var phoneNumber = that.data.phoneNumber;
+    var prov = that.data.prov;
+    var city = that.data.city;
+    var dist = that.data.dist;
+    var detail = that.data.detail;
+
+    var baseUrl = wx.getStorageSync('baseUrl')
     wx.request({
-      url: 'test.php', //仅为示例，并非真实的接口地址
-      data: {
-        x: '',
-        y: ''
-      },
+      url: baseUrl + '/miniapp/addAddress.json',
+      data: Util.json2Form({
+        userId: 1,
+        userName: userName,
+        phoneNumber: phoneNumber,
+        addressA: prov,
+        addressB: city,
+        addressC: dist,
+        addressD: detail
+      }),
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/x-www-form-urlencoded'
       },
+      method: "POST",
       success: function (res) {
-        console.log(res.data)
-        // 保存成功后返回
-        wx.navigateBack()
+        // console.log(res.data)
+        if (res.data.success){
+          // 保存成功后返回
+          wx.navigateBack()
+        }
       }
     })
+    
+
 
     
   },
@@ -237,6 +265,24 @@ Page({
   
   },
 
+  
+
+  // bindKeyUserName: function(e){
+    // 组件中使用这种方式绑定 bindinput="bindKeyUserName"
+  //   this.setData({
+  //     userName: e.detail.value
+  //   })
+  // },
+  // bindKeyPhoneNumber: function (e) {
+  //   this.setData({
+  //     phoneNumber: e.detail.value
+  //   })
+  // },
+  // bindKeyDetail: function (e) {
+  //   this.setData({
+  //     detail: e.detail.value
+  //   })
+  // },
 
 
   /**

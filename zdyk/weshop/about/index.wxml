@@ -15,5 +15,15 @@
 
   <view class="" bindtap="zhao">我的订单</view>
   <view class=""></view>
+  <view wx:for="{{orders}}" wx:key="ordersList" style="border:1px solid #5e5e5e">
+    <view class="">订单编号：</view>
+    <view class="">{{item.order_number}}</view>
+    <view class="">付款金额：</view>
+    <view class="">{{item.amount}}</view>
+    <view class="">配送方式：</view>
+    <view class="">{{item.dispatch_type}}</view>
+    <view class="">备注信息：</view>
+    <view class="">{{item.message}}</view>
+  </view>
 
 </view>

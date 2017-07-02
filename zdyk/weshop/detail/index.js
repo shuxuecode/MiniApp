@@ -17,9 +17,10 @@ Page({
     swiperHeight: 250,
 
     good:{
-      text: '-',
+      longName: '-',
       price: '00.00',
-      detail: ''
+      detail: '',
+      id: ''
     },
 
     userInfo: {}
@@ -104,85 +105,96 @@ Page({
 
   addCart:function(event){
     var baseUrl = wx.getStorageSync('baseUrl')
+    var userId = wx.getStorageSync('userId')
     var id = event.currentTarget.dataset.id;
 
-    wx.showLoading({
-      title: '加载中',
-    })
+    // wx.showLoading({
+    //   title: '加载中',
+    // })
 
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 2000)
+    // setTimeout(function () {
+    //   wx.hideLoading()
+    // }, 2000)
 
-    wx.showModal({
-      content: "加入购物车成功",
-      confirmText: "立即结账",
-      cancelText: "再逛逛",
-      cancelColor: "#DD443A",
-      success: function (res){
+    wx.request({
+      url: baseUrl + '/miniapp/addCart.json',
+      data: {
+        userId: userId,
+        goodId: id
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (data) {
+        console.log(data)
 
-        wx.request({
-          url: baseUrl + '/miniapp/addCart.json',
-          data: {
-            userId: 1,
-            goodId: 4
-          },
-          header: {
-            'content-type': 'application/json'
-          },
-          success: function (res) {
-            console.log(res)
-          }
-        })
-
-        if (res.confirm) {
-          console.log('用户点击确定')
-
-          // 跳转到购物车页面
-          // wx.navigateTo({
-          //   url: '/weshop/cart/index'
-          // })
-
-          wx.switchTab({
-            url: '/weshop/cart/index'
+        if (data.data.success){
+          wx.showModal({
+            content: "加入购物车成功",
+            confirmText: "立即结账",
+            cancelText: "再逛逛",
+            cancelColor: "#DD443A",
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+                wx.switchTab({
+                  url: '/weshop/cart/index'
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
           })
-
-
-        } else if (res.cancel) {
-          console.log('用户点击取消')
+        }else{
+          console.log('添加失败')
         }
+        // 
+        
       }
     })
+
+    
   },
 
   bay: function (event){
+    var baseUrl = wx.getStorageSync('baseUrl')
+    var userId = wx.getStorageSync('userId')
     var id = event.currentTarget.dataset.id;
 
     wx.showToast({
       title: '正在跳转到结账页面...',
       icon: 'loading',
       mask: true,
-      duration: 10000
+      duration: 30000
     })
 
-    setTimeout(function(){
-      // wx.hideToast()
-    }, 10000)
+    // setTimeout(function(){
+    //   // wx.hideToast()
+    // }, 10000)
 
-    wx.switchTab({
-      url: '/weshop/cart/index'
-    })
-
-    /*
-    wx.showModal({
-      content: "购买成功，立即结账",
-      showCancel: false,
-      confirmText: "确定",
-      success: function(){
-
+    wx.request({
+      url: baseUrl + '/miniapp/addCart.json',
+      data: {
+        userId: userId,
+        goodId: id
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (data) {
+        console.log(data)
+        if (data.data.success) {
+          console.log('')
+          wx.switchTab({
+            url: '/weshop/cart/index'
+          })
+        } else{
+          console.log('添加失败')
+        }
       }
     })
-    */
+
+
 
 
   },

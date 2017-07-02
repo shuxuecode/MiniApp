@@ -76,10 +76,11 @@ Page({
    */
   onShow: function () {
     var baseUrl = wx.getStorageSync('baseUrl')
+    var userId = wx.getStorageSync('userId')
     var that = this;
 
     wx.request({
-      url: baseUrl + '/miniapp/getAddresss.json?userId='+12,
+      url: baseUrl + '/miniapp/getAddresss.json?userId=' + userId,
       header: {
         'content-type': 'application/json'
       },

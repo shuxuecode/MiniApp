@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    userInfo: {},
+    orders: []
   },
 
   /**
@@ -26,8 +27,11 @@ Page({
 
   gotoAddress: function(){
 
+    // wx.navigateTo({
+    //   url: '/weshop/address/index?id=0',
+    // })
     wx.navigateTo({
-      url: '/weshop/address/index?id=0',
+      url: '/weshop/addressManage/list',
     })
 
   },
@@ -71,7 +75,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var baseUrl = wx.getStorageSync('baseUrl')
+    var userId = wx.getStorageSync('userId')
+    var that = this;
+
+    wx.request({
+      url: baseUrl + '/miniapp/getOrders.json?userId=' + userId,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        var dd = res.data;
+        that.setData({
+          orders: dd
+        });
+      },
+      fail: function () {
+
+      }
+    })
   },
 
   /**

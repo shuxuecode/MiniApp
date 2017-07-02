@@ -1,15 +1,16 @@
 <!--index.wxml-->
+<form bindsubmit="onSubmit" bindreset="">
 <view class="backCls">确认订单</view>
 <view class="v-a" bindtap="gotoAddressPage">
   <view class="v-a-1">
     <text>收货人：</text>
-    <text>姓名</text>
-    <text class="phone-num">18800009988</text>
+    <text>{{address.user_name}}</text>
+    <text class="phone-num">{{address.phone_number}}</text>
   </view>
   <view class="v-b">
     <view class="v-b-1">
       <text>收货地址：</text>
-      <text>收货地址：</text>
+      <text>{{address.address_a}}{{address.address_b}}{{address.address_c}}{{address.address_d}}</text>
       <text class="v-b-1-3">修改</text>
     </view>
   </view>
@@ -40,7 +41,7 @@
 
 <view class="v-e">
   <view class="">买家留言：</view>
-  <textarea class="v-msg" placeholder="选填"  auto-height />
+  <textarea class="v-msg" name="message" placeholder="选填"  auto-height />
 </view>
 
 
@@ -51,7 +52,10 @@
   <view class="view-btm-b">
     <text>合计：</text>
     <text class="v-b">￥</text>
-    <text class="v-b">{{good.price}}</text>
+    <text class="v-b">{{totalPrice}}</text>
   </view>
-  <view class="view-btm-c" bindtap="test">提交订单</view>
+  <view class="view-btm-c">
+    <button class="view-btm-c-btn" form-type="submit">提交订单</button>
+  </view>
 </view>
+</form>

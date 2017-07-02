@@ -12,8 +12,12 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    wx.setStorageSync('baseUrl', 'https://zdyk.frp.lu8.win')
+    // wx.setStorageSync('baseUrl', 'https://zdyk.frp.lu8.win')
     // wx.setStorageSync('baseUrl', 'https://zhaoshuxue.github.io/html')
+    // wx.setStorageSync('baseUrl', 'http://127.0.0.1:58080')
+    wx.setStorageSync('baseUrl', 'https://weshop.duapp.com')
+
+    wx.setStorageSync("userId", 1)
   },
   getUserInfo:function(cb){
     var that = this

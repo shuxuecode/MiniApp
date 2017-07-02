@@ -81,7 +81,8 @@ page {
 /*商品展示 start*/
 
 .view-1 {
-  display: flex;
+  /*display: flex;*/
+  display: none;
 }
 
 .view-img-1 {
@@ -157,6 +158,12 @@ page {
 
 .view-btm .view-btm-c {
   width: 40%;
+  padding:0;
+}
+
+.view-btm .view-btm-c .view-btm-c-btn {
   background-color: #fc5600;
   color: #fff;
+  font-size:20px;
+border-radius:0px;
 }

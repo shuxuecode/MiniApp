@@ -1,4 +1,7 @@
 // index.js
+
+var Util = require('../../utils/util.js')
+
 Page({
 
   /**
@@ -11,8 +14,20 @@ Page({
       longName: '测试',
       price: '99.00'
     },
+    address:{
+      id: '',
+      user_name: '',
+      phone_number: '',
+      address_a: '',
+      address_b: '',
+      address_c: '',
+      address_d: ''
+    },
+
     //
     dispatchingType: '快递 免邮',
+    dispatchType: 0,
+    totalPrice: '0'
 
   },
 
@@ -24,7 +39,8 @@ Page({
       success: function (res) {
         console.log(res.tapIndex)
         that.setData({
-          dispatchingType: array[res.tapIndex]
+          dispatchingType: array[res.tapIndex],
+          dispatchType: res.tapIndex
         })
       },
       fail: function (res) {
@@ -39,10 +55,60 @@ Page({
     })
   },
 
+  onSubmit: function(e){
+    this.setData({
+      message: e.detail.value.message
+    })
+
+    var that = this;
+    var addressId = that.data.address.id;
+    var amount = that.data.good.price;
+    var dispatchType = that.data.dispatchType;
+    var message = that.data.message;
+
+    
+    console.log(that.data)
+
+    var baseUrl = wx.getStorageSync('baseUrl')
+    var userId = wx.getStorageSync('userId')
+    wx.request({
+      url: baseUrl + '/miniapp/addOrder.json',
+      data: Util.json2Form({
+        userId: userId,
+        addressId: addressId,
+        amount: amount,
+        dispatchType: dispatchType,
+        message: message
+      }),
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: "POST",
+      success: function (res) {
+        // console.log(res.data)
+        if (res.data.success) {
+          // 保存成功后返回
+          wx.showToast({
+            title: '提交成功...',
+            icon: 'success',
+            mask: true,
+            duration: 3000
+          })
+        }
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    var totalPrice = options.totalPrice;
+    this.setData({
+      totalPrice: totalPrice
+    })
+
     var url = wx.getStorageSync('baseUrl')
     console.log(url)
   },
@@ -58,7 +124,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var baseUrl = wx.getStorageSync('baseUrl')
+    var userId = wx.getStorageSync('userId')
+    console.debug("重新加载收货地址")
+    var that = this;
+
+    wx.request({
+      url: baseUrl + '/miniapp/getDefalutAddress.json?userId' + userId,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        var dd = res.data;
+        if(dd.length == 1){
+          that.setData({
+            address: dd[0]
+          });
+        }
+      },
+      fail: function () {
+
+      }
+    })
   },
 
   /**
