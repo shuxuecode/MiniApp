@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="main">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <view class="plane" style="left: {{planeLeft}}px; top: {{planeTop}}px;" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+
+
+  </view>
+
+
+
+  <view class="bullet" style="left: {{bulletLeft}}px; top: {{bulletTop}}px;"></view>
+
+  <view wx:for="{{bullets}}" wx:key="bulletsKey">
+    <view class="bullet" style="left: {{item.left}}px; top: {{item.top}}px;"></view>
+  </view>
+
+
+  <view wx:for="{{enemys}}" wx:key="enemysKey">
+    <view class="enemy " style="left: {{item.left}}px; top: {{item.top}}px; "></view>
+  </view>
+
+
+</view>
