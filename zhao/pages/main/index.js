@@ -189,7 +189,7 @@ function start(that) {
   if (mark % 4 == 0) {
     // console.log('创建子弹')
     var arr = that.data.bullets;
-    console.log("子弹个数：" + arr.length)
+    // console.log("子弹个数：" + arr.length)
     arr.push({
       left: that.data.planeLeft + 50,
       top: that.data.planeTop,
@@ -205,7 +205,7 @@ function start(that) {
     mark1++;
     if (mark1 % 5 == 0) {
       var arr = that.data.enemys;
-      console.log("飞机个数：" + arr.length)
+      // console.log("飞机个数：" + arr.length)
 
       // console.log(windowWidth)
 

@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/main/index",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/home/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "打飞机",
+    "navigationBarTextStyle": "black"
+  }
+}
