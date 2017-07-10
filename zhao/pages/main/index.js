@@ -39,8 +39,8 @@ Page({
         console.log(windowHeight)
 
         // 宽度除2 再减 飞机宽度
-        var left = Math.round((windowWidth / 2) * 100) / 100 - 50;
-        var top = windowHeight - 100;
+        var left = Math.round((windowWidth / 2) * 100) / 100 - 33;
+        var top = windowHeight - 80;
 
         that.setData({
           planeLeft: left,
@@ -68,13 +68,13 @@ Page({
 
     if (left > 0 && left < windowWidth) {
       that.setData({
-        planeLeft: left - 50
+        planeLeft: left - 33
       })
     }
 
     if (top > 0 && top < windowHeight) {
       that.setData({
-        planeTop: top - 50
+        planeTop: top - 40
       })
     }
 
@@ -191,7 +191,7 @@ function start(that) {
     var arr = that.data.bullets;
     // console.log("子弹个数：" + arr.length)
     arr.push({
-      left: that.data.planeLeft + 50,
+      left: that.data.planeLeft + 33,
       top: that.data.planeTop,
       display: 'block'
     })
@@ -241,12 +241,23 @@ function move(that) {
   mark2++;
   var bullets = that.data.bullets;
   if (mark2 % 2 == 0) {
-    if (bullets.length > 0 && bullets[0].top < 0) {
-      bullets.shift();
-    }
+
+    // 保存移除的子弹
+    var delBullets = new Array();
+
+    // if (bullets.length > 0 && bullets[0].top < 0) {
+    //   bullets.shift();
+    // }
 
     for (var i = 0, len = bullets.length; i < len; i++) {
       bullets[i].top = bullets[i].top - 30
+      if (bullets[i].top < 0){
+        delBullets.push(i);
+      }
+    }
+
+    for(var i=delBullets.length - 1; i>=0; i--){
+      bullets.splice(delBullets[i], 1);
     }
 
     that.setData({
