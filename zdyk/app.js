@@ -15,7 +15,7 @@ App({
     // wx.setStorageSync('baseUrl', 'https://zdyk.frp.lu8.win')
     // wx.setStorageSync('baseUrl', 'https://zhaoshuxue.github.io/html')
     // wx.setStorageSync('baseUrl', 'http://127.0.0.1:58080')
-    wx.setStorageSync('baseUrl', 'https://weshop.duapp.com')
+    wx.setStorageSync('baseUrl', 'https://www.zhaoshuxue.xyz')
 
     wx.setStorageSync("userId", 1)
   },
