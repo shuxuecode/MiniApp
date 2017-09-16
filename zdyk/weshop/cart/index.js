@@ -9,14 +9,16 @@ Page({
    */
   data: {
     dataList: [],
-    totalPrice: 0
+    totalPrice: 0,
+    selectIds: [],
+    nullMsg: 'block'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
   checkboxChange: function (e) {
@@ -37,7 +39,8 @@ Page({
 
 
     this.setData({
-      totalPrice: totalPrice
+      totalPrice: totalPrice,
+      selectIds: selectIds
     })
 
   },
@@ -50,12 +53,12 @@ Page({
       checked = false;
       isSelectAll = false;
       that.setData({
-        totalPrice: 0
+        totalPrice: 0,
+        selectIds: []
       })
     } else {
       checked = true;
       isSelectAll = true;
-
     }
 
 
@@ -64,15 +67,19 @@ Page({
 
     if (value) {
       var totalPrice = 0;
+      var selectIds = [];
       for (var i = 0; i < value.length; i++) {
         value[i]["checked"] = checked;
         var price = value[i].price;
         totalPrice = Number((totalPrice + parseFloat(price)).toFixed(2))
+
+        selectIds.push(value[i].id);
       }
 
       if (checked) {
         that.setData({
-          totalPrice: totalPrice
+          totalPrice: totalPrice,
+          selectIds: selectIds
         })
       }
 
@@ -85,9 +92,12 @@ Page({
 
   buyNow: function (e) {
     var totalPrice = this.data.totalPrice;
-    wx.navigateTo({
-      url: '/weshop/payment/index?totalPrice=' + totalPrice,
-    })
+    var selectIds = this.data.selectIds;
+    if (selectIds.length > 0) {
+      wx.navigateTo({
+        url: '/weshop/payment/index?totalPrice=' + totalPrice + '&ids=' + selectIds.join(',')
+      })
+    }
   },
 
 
@@ -114,13 +124,22 @@ Page({
       success: function (res) {
         var dd = res.data;
         console.log('重新加载成功')
-        wx.setStorageSync('dataList', dd);
-        that.setData({
-          dataList: dd
-        });
+        if (dd.length > 0){
+          wx.setStorageSync('dataList', dd);
+          that.setData({
+            dataList: dd,
+            nullMsg: 'none'
+          });
+        }else{
+          that.setData({
+            dataList: [],
+            nullMsg: 'block'
+          });
+        }
+        
       },
       fail: function () {
-        
+
       }
     })
   },

@@ -2,7 +2,8 @@
 
 
 <view class="">
-  <text>编辑</text>
+  <!-- <text>编辑</text> -->
+  <text style='display:{{nullMsg}}'>购物车是空的</text>
 </view>
 
 

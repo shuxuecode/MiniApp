@@ -3,25 +3,33 @@
 
 
 
-<view class="userinfo" >
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    <text bindtap="gotoAddress">收货地址</text>
+<view class="userinfo">
+  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <text class='userinfo-address' bindtap="gotoAddress">收货地址</text>
 </view>
 
 
 
-<view class="my-order">
+<view class="">
 
-  <view class="" bindtap="zhao">我的订单</view>
+  <view class="my-order" bindtap="zhao">我的订单</view>
   <view class=""></view>
-  <view wx:for="{{orders}}" wx:key="ordersList" style="border:1px solid #5e5e5e">
-    <view class="">订单编号：</view>
-    <view class="">{{item.order_number}}</view>
-    <view class="">付款金额：</view>
-    <view class="">{{item.amount}}</view>
-    <view class="">配送方式：</view>
-    <view class="">{{item.dispatch_type}}</view>
+  <view class="order-card" wx:for="{{orders}}" wx:key="ordersList">
+    <view class="">
+      <text class="">订单编号：</text>
+      <text class="">{{item.order_number}}</text>
+    </view>
+    <view class="">
+      <text class="">付款金额：</text>
+      <text class="">￥{{item.amount}}</text>
+    </view>
+    <view class="">
+      <text class="">配送方式：</text>
+      <text wx:if="{{item.dispatch_type == 0}}">快递 免邮</text>
+      <text wx:elif="{{item.dispatch_type == 1}}">快递 自费</text>
+      <text wx:elif="{{item.dispatch_type == 2}}">上门自提</text>      
+    </view>
     <view class="">备注信息：</view>
     <view class="">{{item.message}}</view>
   </view>

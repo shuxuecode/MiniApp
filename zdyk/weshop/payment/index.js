@@ -14,7 +14,7 @@ Page({
       longName: '测试',
       price: '99.00'
     },
-    address:{
+    address: {
       id: '',
       user_name: '',
       phone_number: '',
@@ -27,11 +27,12 @@ Page({
     //
     dispatchingType: '快递 免邮',
     dispatchType: 0,
-    totalPrice: '0'
+    totalPrice: '0',
+    ids: ''
 
   },
 
-  selectDispatching: function(){
+  selectDispatching: function () {
     var that = this;
     var array = ['快递 免邮', '快递 自费', '上门自提'];
     wx.showActionSheet({
@@ -49,24 +50,25 @@ Page({
     })
   },
 
-  gotoAddressPage: function(){
+  gotoAddressPage: function () {
     wx.navigateTo({
       url: '/weshop/addressManage/list',
     })
   },
 
-  onSubmit: function(e){
+  onSubmit: function (e) {
     this.setData({
       message: e.detail.value.message
     })
 
     var that = this;
     var addressId = that.data.address.id;
-    var amount = that.data.good.price;
+    var amount = that.data.totalPrice;
     var dispatchType = that.data.dispatchType;
     var message = that.data.message;
+    var ids = that.data.ids;
 
-    
+
     console.log(that.data)
 
     var baseUrl = wx.getStorageSync('baseUrl')
@@ -78,7 +80,8 @@ Page({
         addressId: addressId,
         amount: amount,
         dispatchType: dispatchType,
-        message: message
+        message: message,
+        ids: ids
       }),
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -92,8 +95,15 @@ Page({
             title: '提交成功...',
             icon: 'success',
             mask: true,
-            duration: 3000
+            duration: 3000,
+            success: function(){
+              wx.switchTab({
+                url: '/weshop/about/index'
+              })
+            }
           })
+
+          
         }
       }
     })
@@ -105,8 +115,10 @@ Page({
   onLoad: function (options) {
 
     var totalPrice = options.totalPrice;
+    var ids = options.ids;
     this.setData({
-      totalPrice: totalPrice
+      totalPrice: totalPrice,
+      ids: ids
     })
 
     var url = wx.getStorageSync('baseUrl')
@@ -117,7 +129,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -136,7 +148,7 @@ Page({
       },
       success: function (res) {
         var dd = res.data;
-        if(dd.length == 1){
+        if (dd.length == 1) {
           that.setData({
             address: dd[0]
           });
@@ -152,34 +164,34 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })
