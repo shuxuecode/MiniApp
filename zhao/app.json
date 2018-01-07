@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/memory/memory",
     "pages/main/index",
     "pages/index/index",
     "pages/logs/logs",

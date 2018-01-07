@@ -1,0 +1,11 @@
+<!--pages/memory.wxml-->
+<text>pages/memory.wxml</text>
+
+
+
+<view wx:for="{{dianmonds}}" wx:key="dianmondKey">
+  <!-- left: {{item.left}}px; top: {{item.top}}px; display: {{item.display}} -->
+  <view class="" style="border: 1px solid #567">
+  {{item.val}}
+  </view>
+</view>
