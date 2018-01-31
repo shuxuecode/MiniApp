@@ -65,6 +65,13 @@ Page({
   },
 
   zhao: function () {
+
+    wx.navigateTo({
+      url: '/libs/citySelector/switchcity/switchcity',
+    });
+
+    return;
+
     console.log(11)
 
     console.log(new Date().getTime())

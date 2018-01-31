@@ -1,0 +1,7 @@
+<!--pages/canvas/index.wxml-->
+<text bindtap='zhao'>pages/canvas/index.wxml</text>
+<canvas 
+style="width: {{width}}px; height: {{height}}px; border: 1px solid #123;" 
+canvas-id="firstCanvas"
+
+></canvas>

@@ -11,7 +11,8 @@
     "pages/index/index",
     "pages/dafeiji/index",
 
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "libs/citySelector/switchcity/switchcity"
   ],
   "window": {
     "backgroundTextStyle": "light",
