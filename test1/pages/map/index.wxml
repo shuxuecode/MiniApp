@@ -1,0 +1,13 @@
+<!--pages/map/index.wxml-->
+<text>pages/map/index.wxml</text>
+<map id="myMap" style="width: 100%; height: 300px;" show-location 
+
+markers="{{markers}}"
+
+
+></map>
+
+<button type="primary" bindtap="getCenterLocation">获取位置</button>
+<button type="primary" bindtap="moveToLocation">移动位置</button>
+<button type="primary" bindtap="translateMarker">移动标注</button>
+<button type="primary" bindtap="includePoints">缩放视野展示所有经纬度</button>

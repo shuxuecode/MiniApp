@@ -1,16 +1,11 @@
 {
   "pages": [
-
-
+    "pages/map/index",
     "pages/demo/demo",
-    
     "pages/puzzle/main",
-    
     "pages/home/home",
-
     "pages/index/index",
     "pages/dafeiji/index",
-
     "pages/logs/logs",
     "libs/citySelector/switchcity/switchcity"
   ],
