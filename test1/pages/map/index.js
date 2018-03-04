@@ -6,16 +6,46 @@ Page({
    */
   data: {
     markers: [{
-      id:111,
+      id: 111,
       latitude: 39.92,
       longitude: 116.46,
       title: 'T.I.T 创意园',
+      // callout:{
+      //   content:"ceshiceshiceshiceshiceshiceshiceshiceshiceshiceshiceshi",
+      //   display:"ALWAYS"
+      // },
       label: {
-        content: "赵",
-        x:-10,
-        y:-30
+        content: "测试测试\n测试测试",
+        color: "#336699DD",
+        bgColor: "#888888"
       }
-    }]
+    },{
+        id: 112,
+        latitude: 39.92201,
+        longitude: 116.46,
+        title: 'T.I.T 创意园',
+        //marker 上的气泡 callout
+        callout: {
+          content: '自定义标记点上方的气泡窗口',
+          color: '#000000',
+          fontSize: 8,
+          borderRadius: 2,
+          bgColor: '#ff00ff',
+          padding: 4,
+          textAlign: 'center',
+        },
+        //marker 上的气泡 label
+        label: {
+          content: '显示在标记点旁边的标签',
+          color: '#000000',
+          fontSize: 12,
+          borderRadius: 2,
+          bgColor: '#ff00ff',
+          padding: 4,
+          textAlign: 'center',
+        },
+    }],
+    controls: []
   },
 
   /**
@@ -68,6 +98,35 @@ Page({
       }]
     })
   },
+
+  markertap: function (e) {
+    console.log(e.markerId)
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /**
    * 生命周期函数--监听页面显示

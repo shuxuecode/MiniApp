@@ -1,6 +1,8 @@
 {
   "pages": [
+    "pages/house/index",
     "pages/map/index",
+    
     "pages/demo/demo",
     "pages/puzzle/main",
     "pages/home/home",
@@ -8,6 +10,7 @@
     "pages/dafeiji/index",
     "pages/logs/logs",
     "libs/citySelector/switchcity/switchcity"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

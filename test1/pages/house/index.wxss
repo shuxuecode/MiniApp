@@ -1,0 +1,67 @@
+/* pages/house/index.wxss */
+/* index.wxss */
+
+page {
+  font-family: Microsoft YaHei;
+}
+
+swiper {
+  height: 250px;
+}
+
+.view-1 {
+  display: flex;
+}
+
+.view-img-1 {
+  float: left;
+  width: 35%;
+}
+
+.view-detail {
+  float: left;
+  width: 65%;
+  position: relative;
+  border-top:1px solid #eeeeee;
+}
+
+.view-detail .view-text {
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.jiage {
+  position: absolute;
+  bottom: 0px;
+  color: #FF5000;
+  font-size: 16px;
+  margin-left: 10px;
+  margin-bottom: 12px;
+}
+
+.price-icon {
+  float: left;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  font-family: arial;
+  padding-right: 2px;
+  
+}
+
+.font-num {
+  float: left;
+  margin-left:8px;
+}
+
+
+
+.btm-view{
+  height: 50px;
+  line-height: 50px;
+  color: #A4A9B0;
+  font-size: 12px;
+  text-align: center;
+  background-color: #E7E7E7;
+}
