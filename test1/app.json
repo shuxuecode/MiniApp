@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/house/index",
     "pages/map/index",
+    "pages/case/list/list",
+    "pages/case/detaile/detaile",
+    
+    "pages/house/index",
     
     "pages/demo/demo",
     "pages/puzzle/main",

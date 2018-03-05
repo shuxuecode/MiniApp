@@ -5,6 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    movies: [
+      { url: 'http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg' },
+      { url: 'http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg' },
+      { url: 'http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg' },
+      { url: 'http://img02.tooopen.com/images/20141231/sy_78327074576.jpg' }
+    ],
     markers: [{
       id: 111,
       latitude: 39.92,
@@ -19,31 +25,31 @@ Page({
         color: "#336699DD",
         bgColor: "#888888"
       }
-    },{
-        id: 112,
-        latitude: 39.92201,
-        longitude: 116.46,
-        title: 'T.I.T 创意园',
-        //marker 上的气泡 callout
-        callout: {
-          content: '自定义标记点上方的气泡窗口',
-          color: '#000000',
-          fontSize: 8,
-          borderRadius: 2,
-          bgColor: '#ff00ff',
-          padding: 4,
-          textAlign: 'center',
-        },
-        //marker 上的气泡 label
-        label: {
-          content: '显示在标记点旁边的标签',
-          color: '#000000',
-          fontSize: 12,
-          borderRadius: 2,
-          bgColor: '#ff00ff',
-          padding: 4,
-          textAlign: 'center',
-        },
+    }, {
+      id: 112,
+      latitude: 39.92201,
+      longitude: 116.46,
+      title: 'T.I.T 创意园',
+      //marker 上的气泡 callout
+      callout: {
+        content: '自定义标记点上方的气泡窗口',
+        color: '#000000',
+        fontSize: 8,
+        borderRadius: 2,
+        bgColor: '#ff00ff',
+        padding: 4,
+        textAlign: 'center',
+      },
+      //marker 上的气泡 label
+      label: {
+        content: '显示在标记点旁边的标签',
+        color: '#000000',
+        fontSize: 12,
+        borderRadius: 2,
+        bgColor: '#ff00ff',
+        padding: 4,
+        textAlign: 'center',
+      },
     }],
     controls: []
   },

@@ -5,7 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataList: []
+    dataList: [],
+    content: [],
+    nv: [],
+    px: [],
+    qyopen: false,
+    qyshow: false,
+    nzopen: false,
+    pxopen: false,
+    nzshow: false,
+    pxshow: false,
+    isfull: false,
+    citycenter: {},
+    cityright: {},
+    select1: '',
+    select2: '',
+    shownavindex: ''
   },
 
   /**
@@ -49,6 +64,11 @@ Page({
         "id": "1002"
       }]
     });
+
+    this.setData({
+      nv: ['衣服', '裤子', '内衣', '服饰', '衣服', '裤子', '内衣', '服饰', '衣服', '裤子', '内衣', '服饰'],
+      px: ['默认排序', '离我最近', '价格最低', '价格最高']
+    })
   },
 
   gotoDetail: function (event) {
@@ -57,6 +77,35 @@ Page({
     wx.navigateTo({
       url: '/pages/map/index?id=' + id
     })
+  },
+
+  listpx: function (e) {
+    if (this.data.pxopen) {
+      this.setData({
+        nzopen: false,
+        pxopen: false,
+        qyopen: false,
+        nzshow: true,
+        pxshow: false,
+        qyshow: true,
+        isfull: false,
+        shownavindex: 0
+      })
+    } else {
+      this.setData({
+        content: this.data.px,
+        nzopen: false,
+        pxopen: true,
+        qyopen: false,
+        nzshow: true,
+        pxshow: false,
+        qyshow: true,
+        isfull: true,
+        shownavindex: e.currentTarget.dataset.nav
+      })
+    }
+    console.log(e.target)
+    console.log(this.data.pxopen)
   },
 
   /**

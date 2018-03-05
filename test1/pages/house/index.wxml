@@ -1,8 +1,20 @@
 <!--pages/house/index.wxml-->
 <text>demo</text>
+
+<view class="nav-son {{shownavindex == 3? 'active' : ''}}" bindtap="listpx" data-nav="3">
+  <view class="content">排序</view>
+  <view class="icon"></view>
+</view>
+
+<view class="temp temp2 {{pxopen ? 'slidown' : 'slidup'}} {{pxshow ? 'disappear':''}}">
+  <view wx:for="{{content}}">
+    {{item}}
+  </view>
+</view>
+
 <view wx:for="{{dataList}}" wx:key="dataListObj">
 
-  <view class="view-1" bindtap="gotoDetail"  data-id="{{item.id}}">
+  <view class="view-1" bindtap="gotoDetail" data-id="{{item.id}}">
     <view class="view-img-1">
       <image mode="widthFix" src="{{item.imgUrl}}" style="width:100%; height:100%;"></image>
     </view>
