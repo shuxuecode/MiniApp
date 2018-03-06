@@ -1,15 +1,40 @@
 <!--pages/house/index.wxml-->
-<text>demo</text>
+<!-- <text>demo</text> -->
 
-<view class="nav-son {{shownavindex == 3? 'active' : ''}}" bindtap="listpx" data-nav="3">
-  <view class="content">排序</view>
-  <view class="icon"></view>
+<view class="search-area">
+    <input class="search-txt" name="keyword" 
+    placeholder="{{placeholderText}}" 
+    maxlength="10"
+    confirm-type="search"
+    bindconfirm="search"
+    />
 </view>
 
-<view class="temp temp2 {{pxopen ? 'slidown' : 'slidup'}} {{pxshow ? 'disappear':''}}">
-  <view wx:for="{{content}}">
-    {{item}}
+
+
+<!-- 筛选条件 -->
+<!--选项卡-->
+<view class="tabTit box tc bg_f">
+  <view class="flex1{{!tab[index]?' active':''}}" wx:for="{{tabTxt}}" wx:key="" data-index="{{index}}" bindtap="filterTab">
+    <text>{{item}}</text>
+    <image src="/images/arrow.png"></image>
   </view>
+</view>
+
+<!--筛选项-->
+<view class="tabLayer tc" hidden="{{tab[0]}}">
+  <text class="{{area_type==0?'active':''}}" data-id="0" data-index="0" data-txt="地区" bindtap="filter">不限</text>
+  <text class="{{area_type==item.id?'active':''}}" wx:for="{{filterList.areaTypeList}}" wx:key="" data-id="{{item.id}}" data-index="0" data-txt="{{item.name}}" bindtap="filter">{{item.name}}</text>
+</view>
+
+<view class="tabLayer tc" hidden="{{tab[1]}}">
+  <text class="{{rent_type==0?'active':''}}" data-id="0" data-index="1" data-txt="租金" bindtap="filter">不限</text>
+  <text class="{{rent_type==item.id?'active':''}}" wx:for="{{filterList.rentTypeList}}" wx:key="" data-id="{{item.id}}" data-index="1" data-txt="{{item.name}}" bindtap="filter">{{item.name}}</text>
+</view>
+
+<view class="tabLayer tc" hidden="{{tab[2]}}">
+  <text class="{{order_type==0?'active':''}}" data-id="0" data-index="2" data-txt="排序" bindtap="filter">不限</text>
+  <text class="{{order_type==item.id?'active':''}}" wx:for="{{filterList.orderTypeList}}" wx:key="" data-id="{{item.id}}" data-index="2" data-txt="{{item.name}}" bindtap="filter">{{item.name}}</text>
 </view>
 
 <view wx:for="{{dataList}}" wx:key="dataListObj">

@@ -5,8 +5,8 @@ Page({
     house_type: 0,//户型
     house_style: 0,//风格
     house_area: 0,//面积
-    tabTxt: ['户型', '风格', '面积'],//tab文案
-    tab: [true, true, true],
+    tabTxt: ['地区', '租金', '户型', '排序'],//tab文案
+    tab: [true, true, true, true],
     disabled: false,//加载更多按钮状态
     page: 1,//当前页码
     hasMore: false,//加载更多按钮

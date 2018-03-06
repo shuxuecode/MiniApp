@@ -6,10 +6,10 @@ Page({
    */
   data: {
     movies: [
-      { url: 'http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg' },
-      { url: 'http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg' },
-      { url: 'http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg' },
-      { url: 'http://img02.tooopen.com/images/20141231/sy_78327074576.jpg' }
+      { url: 'http://pic4.58cdn.com.cn/anjuke_58/87090d02a9e155bc025be002991e6b8a?w=640&h=480&crop=1' },
+      { url: 'http://pic7.58cdn.com.cn/anjuke_58/d07ee3c4b74a890bbc660bee12dd3469?w=640&h=480&crop=1' },
+      { url: 'http://pic4.58cdn.com.cn/anjuke_58/39915b9d20b2c440145b35c200d81d9e?w=640&h=480&crop=1' },
+      { url: 'http://pic4.58cdn.com.cn/anjuke_58/39915b9d20b2c440145b35c200d81d9e?w=640&h=480&crop=1' }
     ],
     markers: [{
       id: 111,
