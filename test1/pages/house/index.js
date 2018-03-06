@@ -15,7 +15,7 @@ Page({
     this.setData({
       dataList: [{
         "imgUrl": "http://pic4.58cdn.com.cn/anjuke_58/87090d02a9e155bc025be002991e6b8a?w=640&h=480&crop=1",
-        "text": "(单间出租)六道口地铁 静淑东里小区 精装修三家合住次卧出租",
+        "text": "(单间出租)六道口地铁 静淑东里小区 精装修三家合住次卧出租精装修三家合住次卧出租",
         "price": "2100 元/月    押一付三",
         "id": "1001"
       },
