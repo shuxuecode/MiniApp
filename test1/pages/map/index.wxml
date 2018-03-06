@@ -1,20 +1,44 @@
 <!--pages/map/index.wxml-->
-<text>pages/map/index.wxml</text>
+<!-- <text>pages/map/index.wxml</text> -->
 
 <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
-  <block wx:for="{{movies}}" wx:for-index="index">
+  <block wx:for="{{movies}}" wx:for-index="index" wx:key="">
     <swiper-item>
-      <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
+      <image src="{{item.url}}" class="slide-image" mode="aspectFill" data-imgurl="{{item.url}}"  bindtap="swiperClick"/>
     </swiper-item>
   </block>
 </swiper>
 
+<image src="/images/demo.png" style='width:100%'  mode="widthFix" />
+
+
+<!--  -->
+
+
+
 <view>房屋介绍</view>
 
-
-<map id="myMap" style="width: 100%; height: 300px;" show-location scale="15" markers="{{markers}}" bindmarkertap="markertap" controls="{{controls}}"></map>
-
+<view style='display:flex; justify-content:center;'>
+<map id="myMap" style="width: 90%; height: 600rpx;" show-location scale="15" markers="{{markers}}" bindmarkertap="markertap" controls="{{controls}}"></map>
+</view>
 <!-- <button type="primary" bindtap="getCenterLocation">获取位置</button>
 <button type="primary" bindtap="moveToLocation">移动位置</button>
 <button type="primary" bindtap="translateMarker">移动标注</button>
 <button type="primary" bindtap="includePoints">缩放视野展示所有经纬度</button> -->
+
+
+<view>房屋介绍</view>
+<view>房屋介绍</view>
+<view>房屋介绍</view>
+<view>房屋介绍</view>
+ <button open-type="contact">进入客服会话</button> 
+
+
+<view style="height:50px;">
+  <!--占位-->
+</view>
+<view class="zsx">
+  <view class="home-page" bindtap="gotoHome">联系人姓名</view>
+  <view class="cart" bindtap="wechat" data-id="{{good.id}}">微信</view>
+  <view class="bay-now" bindtap="call" data-id="{{good.id}}">电话</view>
+</view>

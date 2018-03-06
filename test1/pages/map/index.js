@@ -54,6 +54,27 @@ Page({
     controls: []
   },
 
+  swiperClick: function (e) {
+    console.log(e.currentTarget.dataset.imgurl)
+    wx.previewImage({
+      current: e.currentTarget.dataset.imgurl, // 当前显示图片的http链接
+      urls: [
+        "http://pic4.58cdn.com.cn/anjuke_58/87090d02a9e155bc025be002991e6b8a?w=640&h=480&crop=1", "http://pic7.58cdn.com.cn/anjuke_58/d07ee3c4b74a890bbc660bee12dd3469?w=640&h=480&crop=1",
+        "http://pic4.58cdn.com.cn/anjuke_58/39915b9d20b2c440145b35c200d81d9e?w=640&h=480&crop=1"]
+    })
+  },
+
+  wechat: function () {
+    wx.previewImage({
+      current: '', // 当前显示图片的http链接
+      urls: ["http://wx1.sinaimg.cn/small/b11e11f9ly1fp3g1t4bqrj209k09kmx4.jpg"] // 需要预览的图片http链接列表
+    })
+  },
+  call: function (e) {
+    wx.makePhoneCall({
+      phoneNumber: '18800000000' //仅为示例，并非真实的电话号码
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

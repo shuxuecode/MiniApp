@@ -1,23 +1,18 @@
 {
   "pages": [
-
     "pages/house/index",
-    
-    "pages/case/list/list",
     "pages/map/index",
-    
+    "pages/favorite/index",
+    "pages/case/list/list",
     "pages/case/detaile/detaile",
-    
-    
-    
     "pages/demo/demo",
     "pages/puzzle/main",
     "pages/home/home",
     "pages/index/index",
     "pages/dafeiji/index",
     "pages/logs/logs",
-    "libs/citySelector/switchcity/switchcity"
-    
+    "libs/citySelector/switchcity/switchcity",
+    "pages/about/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,16 +28,22 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/house/index",
+        "text": "热门房源",
         "iconPath": "image/icon_component.png",
-        "selectedIconPath": "image/icon_component_HL.png",
-        "text": "计算器"
+        "selectedIconPath": "image/icon_component_HL.png"
       },
       {
-        "pagePath": "pages/puzzle/main",
+        "pagePath": "pages/favorite/index",
         "iconPath": "image/icon_API.png",
         "selectedIconPath": "image/icon_API_HL.png",
-        "text": "拼图"
+        "text": "我的收藏"
+      },
+      {
+        "pagePath": "pages/about/index",
+        "iconPath": "image/wechat.png",
+        "selectedIconPath": "image/wechatHL.png",
+        "text": "租房流程"
       }
     ]
   },
