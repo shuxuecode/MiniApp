@@ -1,0 +1,7 @@
+<view class="null tc" hidden="{{dataNull}}">
+	<icon type="success" size="100" />
+	<view class="txt1">预约成功</view>
+	<view class="txt2">{{info}}</view>
+	<view class="txt2">{{times}}{{tips}}</view>
+	<button type="default" size="default" bindtap="gotoCase"> 点击立即跳转 </button>
+</view>
