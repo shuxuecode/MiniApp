@@ -1,16 +1,39 @@
 // pages/map/index.js
+var postData = require('../../data/houseData.js'); 
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    movies: [
-      { url: 'http://pic4.58cdn.com.cn/anjuke_58/87090d02a9e155bc025be002991e6b8a?w=640&h=480&crop=1' },
-      { url: 'http://pic7.58cdn.com.cn/anjuke_58/d07ee3c4b74a890bbc660bee12dd3469?w=640&h=480&crop=1' },
-      { url: 'http://pic4.58cdn.com.cn/anjuke_58/39915b9d20b2c440145b35c200d81d9e?w=640&h=480&crop=1' },
-      { url: 'http://pic4.58cdn.com.cn/anjuke_58/39915b9d20b2c440145b35c200d81d9e?w=640&h=480&crop=1' }
-    ],
+
+    house: {
+      id:0,
+      summary: "",
+      publishDate: "", // 发布时间
+      lookNum: "", // 浏览次数
+      houseType: "", // 户型
+      rental: "", // 租金
+      village: "", // 小区
+      houseArea: "", // 面积
+      houseFloor: "", // 楼层
+      payMode: "", //  付款
+      direction: "", // 朝向
+      decoration: "", // 装修
+      address: "", // 地址
+      longitude: "", // 经度
+      latitude: "", // 纬度
+      detail: "", // 详细描述
+      personName: "", // 联系人
+      telephone: "", // 电话
+      wechatId: "", // 微信id
+      wechatImage: "", // 微信二维码
+      imgUrlList: [] // 图片
+    },
+
+    images: [],
+    longitude: 116.404008,
+    latitude: 39.914209,
     markers: [{
       id: 111,
       latitude: 39.92,
@@ -55,12 +78,10 @@ Page({
   },
 
   swiperClick: function (e) {
-    console.log(e.currentTarget.dataset.imgurl)
+    // console.log(e.currentTarget.dataset.imgurl)
     wx.previewImage({
       current: e.currentTarget.dataset.imgurl, // 当前显示图片的http链接
-      urls: [
-        "http://pic4.58cdn.com.cn/anjuke_58/87090d02a9e155bc025be002991e6b8a?w=640&h=480&crop=1", "http://pic7.58cdn.com.cn/anjuke_58/d07ee3c4b74a890bbc660bee12dd3469?w=640&h=480&crop=1",
-        "http://pic4.58cdn.com.cn/anjuke_58/39915b9d20b2c440145b35c200d81d9e?w=640&h=480&crop=1"]
+      urls: this.data.house.imgUrlList
     })
   },
 
@@ -71,14 +92,64 @@ Page({
     })
   },
   call: function (e) {
+    var telephone = this.data.house.telephone;
     wx.makePhoneCall({
-      phoneNumber: '18800000000' //仅为示例，并非真实的电话号码
+      phoneNumber: telephone //仅为示例，并非真实的电话号码
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    var baseUrl = wx.getStorageSync('baseUrl')
+    var that = this;
+
+    this.testPost();
+
+    return;
+
+    wx.request({
+      url: baseUrl + '/houseData.json',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        var arr = new Array();
+        let imgUrlList = res.data.imgUrlList;
+        for (var i = 0, len = imgUrlList.length; i < len; i++){
+          arr.push({
+            url: imgUrlList[i]
+          })
+        }
+
+        var marker = {
+          id: 1,
+          // iconPath: '/images/yuyue1.png',
+          latitude: res.data.latitude,
+          longitude: res.data.longitude
+        }
+        var markers = new Array();
+        markers.push(marker);
+
+        that.setData({
+          house: res.data,
+          images: arr,
+          markers: markers,
+          latitude: res.data.latitude,
+          longitude: res.data.longitude
+        });
+        
+
+
+        
+
+      },
+      fail: function (res) {
+        console.log('请求失败')
+      }
+    })
 
   },
 
@@ -88,14 +159,8 @@ Page({
   onReady: function () {
     this.mapCtx = wx.createMapContext('myMap')
   },
-  getCenterLocation: function () {
-    this.mapCtx.getCenterLocation({
-      success: function (res) {
-        console.log(res.longitude)
-        console.log(res.latitude)
-      }
-    })
-  },
+ 
+
   moveToLocation: function () {
     this.mapCtx.moveToLocation()
   },
@@ -113,18 +178,6 @@ Page({
       }
     })
   },
-  includePoints: function () {
-    this.mapCtx.includePoints({
-      padding: [10],
-      points: [{
-        latitude: 23.10229,
-        longitude: 113.3345211,
-      }, {
-        latitude: 23.00229,
-        longitude: 113.3345211,
-      }]
-    })
-  },
 
   markertap: function (e) {
     console.log(e.markerId)
@@ -139,7 +192,38 @@ Page({
 
 
 
+  testPost: function(e){
 
+    var that = this;
+
+    var houseData = postData.houseData;
+
+    
+    var arr = new Array();
+    let imgUrlList = houseData.imgUrlList;
+    for (var i = 0, len = imgUrlList.length; i < len; i++) {
+      arr.push({
+        url: imgUrlList[i]
+      })
+    }
+
+    var marker = {
+      id: 1,
+      // iconPath: '/images/yuyue1.png',
+      latitude: houseData.latitude,
+      longitude: houseData.longitude
+    }
+    var markers = new Array();
+    markers.push(marker);
+
+    that.setData({
+      house: houseData,
+      images: arr,
+      markers: markers,
+      latitude: houseData.latitude,
+      longitude: houseData.longitude
+    });
+  },
 
 
 

@@ -2,43 +2,73 @@
 <!-- <text>pages/map/index.wxml</text> -->
 
 <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
-  <block wx:for="{{movies}}" wx:for-index="index" wx:key="">
+  <block wx:for="{{images}}" wx:for-index="index" wx:key="">
     <swiper-item>
-      <image src="{{item.url}}" class="slide-image" mode="aspectFill" data-imgurl="{{item.url}}"  bindtap="swiperClick"/>
+      <image src="{{item.url}}" class="slide-image" mode="aspectFill" data-imgurl="{{item.url}}" bindtap="swiperClick" />
     </swiper-item>
   </block>
 </swiper>
 
-<image src="/images/demo.png" style='width:100%'  mode="widthFix" />
-
+<view class="v-a">
+  <view class='v-a-1'>{{house.summary}}</view>
+  <view class='v-a-2'>发布：{{house.publishDate}}</view>
+  <view class='v-a-3'>浏览：{{house.lookNum}}次</view>
+</view>
 
 <!--  -->
+<view class='v-b'>
+  <view class='v-b-1 v-width'>户型</view>
+  <view class='v-b-2 v-width'>租金</view>
+  <view class='v-b-3 v-width'>{{house.houseType}}</view>
+  <view class='v-b-4 v-width'>{{house.rental}}元/月</view>
+</view>
 
+<!--  -->
+<view class='v-c'>
+  <view class='v-c-1 v-width'>小区：{{house.village}}</view>
+  <view class='v-c-2 v-width'>面积：{{house.houseArea}}</view>
+  <!--  -->
+  <view class='v-c-3 v-width'>楼层：{{house.houseFloor}}</view>
+  <view class='v-c-4 v-width'>付款：{{house.payMode}}</view>
+  <!--  -->
+  <view class='v-c-5 v-width'>朝向：{{house.direction}}</view>
+  <view class='v-c-6 v-width'>装修：{{house.decoration}}</view>
+  <!--  -->
+  <view class='v-c-7'>地址：{{house.address}}</view>
+</view>
 
+<view class='v-d'></view>
 
-<view>房屋介绍</view>
+<!-- <image src="/images/demo.png" style='width:100%' mode="widthFix" /> -->
 
 <view style='display:flex; justify-content:center;'>
-<map id="myMap" style="width: 90%; height: 600rpx;" show-location scale="15" markers="{{markers}}" bindmarkertap="markertap" controls="{{controls}}"></map>
+  <map id="myMap" style="width: 90%; height: 600rpx;" 
+  longitude="{{longitude}}" 
+  latitude="{{latitude}}" 
+  scale="15" markers="{{markers}}" bindmarkertap="markertap" controls="{{controls}}"></map>
 </view>
+
+<!-- <button type="primary" bindtap="moveToLocation">移动位置</button> -->
 <!-- <button type="primary" bindtap="getCenterLocation">获取位置</button>
 <button type="primary" bindtap="moveToLocation">移动位置</button>
 <button type="primary" bindtap="translateMarker">移动标注</button>
 <button type="primary" bindtap="includePoints">缩放视野展示所有经纬度</button> -->
 
+<view class='v-d'>房屋描述</view>
 
-<view>房屋介绍</view>
-<view>房屋介绍</view>
-<view>房屋介绍</view>
-<view>房屋介绍</view>
- <button open-type="contact">进入客服会话</button> 
+<view class='detail-txt'>
+  <text>{{house.detail}}</text>
+</view>
+
+
+<button open-type="contact">进入客服会话</button>
 
 
 <view style="height:50px;">
   <!--占位-->
 </view>
-<view class="zsx">
-  <view class="home-page" bindtap="gotoHome">联系人姓名</view>
-  <view class="cart" bindtap="wechat" data-id="{{good.id}}">微信</view>
-  <view class="bay-now" bindtap="call" data-id="{{good.id}}">电话</view>
-</view>
+<cover-view class="zsx">
+  <cover-view class="home-page" bindtap="gotoHome">{{house.personName}}</cover-view>
+  <cover-view class="cart" bindtap="wechat" data-id="{{good.id}}">微信</cover-view>
+  <cover-view class="bay-now" bindtap="call" data-id="{{good.id}}">电话</cover-view>
+</cover-view>

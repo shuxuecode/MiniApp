@@ -1,4 +1,5 @@
 // pages/house/index.js
+var postData = require('../../data/houseList.js');  
 Page({
 
   /**
@@ -23,31 +24,35 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      dataList: [{
-        "imgUrl": "http://pic4.58cdn.com.cn/anjuke_58/87090d02a9e155bc025be002991e6b8a?w=640&h=480&crop=1",
-        "text": "(单间出租)六道口地铁 静淑东里小区 精装修三家合住次卧出租精装修三家合住次卧出租",
-        "price": "2100 元/月    押一付三",
-        "id": "1001"
-      },
-      {
-        "imgUrl": "http://pic7.58cdn.com.cn/anjuke_58/d07ee3c4b74a890bbc660bee12dd3469?w=640&h=480&crop=1",
-        "text": "(单间出租)景泰路 地铁14号线 刘家窑北里主卧室 超大卧室带阳台",
-        "price": "2500 元/月    押一付三",
-        "id": "1002"
-      },
-      {
-        "imgUrl": "http://pic4.58cdn.com.cn/anjuke_58/39915b9d20b2c440145b35c200d81d9e?w=640&h=480&crop=1",
-        "text": "中关村 清华大学 语言大学 地质大学 精装大两居 看房随时",
-        "price": "9800 元/月    押一付一",
-        "id": "1002"
-      }]
+
+    var baseUrl = wx.getStorageSync('baseUrl')
+    var that = this;
+    console.log(postData)
+    that.setData({
+      dataList: postData.houseList.list
     });
 
-    // this.setData({
-    //   dataList: []
-    // });
+    return;
+    // houseList
+    wx.request({
+      // url: baseUrl + '/houseList.json',
+      url: '/js/houseList.json',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          dataList: res.data.list
+        });
+        console.log("总页数: " + res.data.pages)
+      },
+      fail: function(res){
+        console.log('请求失败')
+      }
+    })
 
+// https://highness.coding.me/HTML/data/houseList.json
 
   },
 
@@ -183,13 +188,13 @@ Page({
       }
     });
 
-    let arr = this.data.dataList;
-    arr = arr.concat(arr)
-    arr = arr.concat(arr)
+    // let arr = this.data.dataList;
+    // arr = arr.concat(arr)
+    // arr = arr.concat(arr)
     // arr = []
-    this.setData({
-      dataList: arr
-    })
+    // this.setData({
+    //   dataList: arr
+    // })
   },
 
   /**

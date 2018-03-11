@@ -2,12 +2,7 @@
 <!-- <text>demo</text> -->
 
 <view class="search-area">
-    <input class="search-txt" name="keyword" 
-    placeholder="{{placeholderText}}" 
-    maxlength="10"
-    confirm-type="search"
-    bindconfirm="search"
-    />
+  <input class="search-txt" name="keyword" placeholder="{{placeholderText}}" maxlength="10" confirm-type="search" bindconfirm="search" />
 </view>
 
 
@@ -44,10 +39,11 @@
       <image mode="widthFix" src="{{item.imgUrl}}" style="width:100%; height:100%;"></image>
     </view>
     <view class="view-detail">
-      <view class="view-text">{{item.text}}</view>
+      <view class="view-text">{{item.summary}}</view>
+      <view class="v-txt">{{item.village}} - {{item.districtName}}</view>
       <view class="jiage">
         <view class="price-icon"></view>
-        <view class="font-num">{{item.price}}</view>
+        <view class="font-num">{{item.rental}} 元/月</view>
       </view>
     </view>
   </view>

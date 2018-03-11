@@ -133,6 +133,14 @@ swiper {
   font-size: 16px;
   font-weight: bold;
   margin-left: 10px;
+  height: 86rpx;
+  overflow: hidden;
+}
+
+.view-detail .v-txt {
+  padding-top: 10rpx;
+  padding-left: 36rpx;
+  font-size: 12px;
 }
 
 .jiage {

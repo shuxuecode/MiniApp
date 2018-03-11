@@ -5,6 +5,8 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+//  设置请求url
+    wx.setStorageSync('baseUrl', 'https://highness.coding.me/HTML/data')
   },
   getUserInfo:function(cb){
     var that = this

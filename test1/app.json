@@ -1,7 +1,10 @@
 {
   "pages": [
+    
     "pages/house/index",
     "pages/map/index",
+    
+    
     "pages/favorite/index",
     "pages/case/list/list",
     "pages/case/detaile/detaile",
