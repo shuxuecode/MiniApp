@@ -5,14 +5,16 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-//  设置请求url
+    //  设置请求url
     wx.setStorageSync('baseUrl', 'https://highness.coding.me/HTML/data')
+
+    this.getDD();
   },
-  getUserInfo:function(cb){
+  getUserInfo: function (cb) {
     var that = this
-    if(this.globalData.userInfo){
+    if (this.globalData.userInfo) {
       typeof cb == "function" && cb(this.globalData.userInfo)
-    }else{
+    } else {
       //调用登录接口
       wx.login({
         success: function () {
@@ -26,8 +28,44 @@ App({
       })
     }
   },
-  globalData:{
-    userInfo:null
+  globalData: {
+    userInfo: null
+  },
+  getDD: function () {
+
+    
+
+    //return false;
+
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        console.log(res)
+        var latitude = res.latitude
+        var longitude = res.longitude
+        var speed = res.speed
+        var accuracy = res.accuracy
+      },
+      fail: function (res) {
+        console.log("失败了")
+        console.log(res)
+        // {errMsg: "getLocation:fail auth deny"}
+        // wx.getSetting({
+        //   success: (res) => {
+        //     console.log(res)
+        //   }
+        // })
+        // wx.openSetting({
+        //   success: (res) =>{
+        //     console.log(res)
+        //   }
+        // })
+      },
+      complete: function (res) {
+        console.log('complete')
+        console.log(res)
+      }
+    })
   }
 })
 

@@ -28,9 +28,9 @@ Page({
     var baseUrl = wx.getStorageSync('baseUrl')
     var that = this;
     console.log(postData)
-    that.setData({
-      dataList: postData.houseList.list
-    });
+    // that.setData({
+    //   dataList: postData.houseList.list
+    // });
 
     return;
     // houseList
@@ -73,10 +73,11 @@ Page({
     var that = this,
       id = e.currentTarget.dataset.id,
       txt = e.currentTarget.dataset.txt,
+      index = e.currentTarget.dataset.index,
       tabTxt = this.data.tabTxt,
       tab = [true, true, true];
 
-    switch (e.currentTarget.dataset.index) {
+    switch (index) {
       case '0':
         tabTxt[0] = txt;
         that.setData({
@@ -102,6 +103,21 @@ Page({
         });
         break;
     }
+
+    //
+    if (index == '2' && id == 2){
+      // 如果选择了距离由近到远，则检查是否有获取用户地址信息的权限
+      that.checkGetUserLocation();
+      wx.getLocation({
+        success: function(res) {
+          console.log(res)
+        },
+        fail: function(res){
+          console.log(res)
+        }
+      })
+    }
+    console.log('执行搜索')
   },
 
   
@@ -196,6 +212,36 @@ Page({
     //   dataList: arr
     // })
   },
+// 
+  checkGetUserLocation: function(){
+    wx.getSetting({
+      success: (res) => {
+        // console.log(res)
+        // console.log(res.authSetting['scope.userLocation'])
+
+        if (!res.authSetting['scope.userLocation']) {
+
+          wx.showModal({
+            title: '',
+            content: '距离由近到远 需要获取您的地理位置，请在设置中确认',
+            showCancel: false,
+            success: function (res) {
+              console.log(res)
+              if (res.confirm) {
+                console.log('用户点击确定')
+                wx.openSetting({
+                  success: (res) => {
+                    console.log('获取地址信息结果')
+                    console.log(res.authSetting)
+                  }
+                })
+              }
+            }
+          })
+        }
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -229,7 +275,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log(111)
+    let arr = this.data.dataList;
+    arr = arr.concat(arr)
+    arr = arr.concat(arr)
+    // arr = []
+    this.setData({
+      dataList: arr
+    })
   },
 
   /**
