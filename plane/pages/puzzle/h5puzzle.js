@@ -121,10 +121,15 @@ class Puzzle {
       })
     }
     page.onTouchEnd = function(e){
-      _this.cval.px = _this.val.px;
-      _this.cval.py = _this.val.py;
-      _this.val.px = _this.originPX;
-      _this.val.py = _this.originPY;
+      // console.info(_this)
+      if (_this.val){
+        _this.cval.px = _this.val.px;
+        _this.cval.py = _this.val.py;
+        // todo
+        _this.val.px = _this.originPX;
+        _this.val.py = _this.originPY;
+      }
+      
 
       _this.page.setData({
         imgPoints: _this.newTypeArr,

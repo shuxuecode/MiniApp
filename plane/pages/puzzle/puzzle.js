@@ -2,10 +2,9 @@ const Puzzle = require("./h5puzzle.js");
 Page({
   data: {
     imgPoints: [],
-    imgArr: ['../../src/images/quanyecha.jpg', '../../src/images/haidao.jpg', '../../src/images/mingren1.jpg', '../../src/images/qilongzhu1.jpg','../../src/images/quanye.jpg'],
+    imgArr: ['	https://highness-1-1253922088.cos.ap-beijing.myqcloud.com/zhao/puzzle.png ','../../src/images/quanyecha.jpg', '../../src/images/haidao.jpg', '../../src/images/mingren1.jpg', '../../src/images/qilongzhu1.jpg', '../../src/images/quanye.jpg'],
     imgUrl: '../../src/images/quanyecha.jpg',
-    levelArr: [
-      {
+    levelArr: [{
         id: 2,
         text: '弱智'
       },
@@ -58,12 +57,12 @@ Page({
     currentPY: 0,
     type0: 4
   },
-  onReady(){
+  onReady() {
     let _this = this;
-    
+
     new Puzzle(this);
   },
-  getType(e){
+  getType(e) {
     this.setData({
       trans: -this.data.WIDTH,
       type0: e.currentTarget.dataset.type
@@ -72,7 +71,7 @@ Page({
       type: e.currentTarget.dataset.type
     })
   },
-  getUrl(e){
+  getUrl(e) {
     this.setData({
       trans: -this.data.WIDTH * 2,
       imgUrl: e.currentTarget.dataset.url
