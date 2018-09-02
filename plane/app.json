@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/puzzle/puzzle",
+    "pages/puzzle2/puzzle",
     "pages/canvas/index",
     "pages/main/index",
     "pages/index/index",
