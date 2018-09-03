@@ -1,0 +1,8 @@
+<!--pages/img/index.wxml-->
+<text>pages/img/index.wxml</text>
+
+<button bindtap='choose' > 选择 </button>
+<button bindtap='upload' > 上传 </button>
+<text>{{uploadText}}</text>
+
+<image src='{{imgSrc}}'></image>

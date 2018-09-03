@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/img/index",
     "pages/puzzle/puzzle",
     "pages/canvas/index",
     "pages/main/index",
     "pages/index/index",
     "pages/logs/logs",
     "pages/home/index"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
