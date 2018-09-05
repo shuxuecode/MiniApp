@@ -2,12 +2,8 @@
   <view style='height:{{HEIGHT}}px;width:{{WIDTH * 3}}px;transform: translateX({{trans}}px);' class='tui-puzzle-box'>
     <!--选择难度  -->
     <view class='tui-puzzle-choose' style="height:{{HEIGHT}}px;width:{{WIDTH}}px;position:relative;float:left;background:url('../../src/images/puzzle-bg.jpg') no-repeat  0px 0px/{{WIDTH}}px {{HEIGHT}}px;">
-      <text class='tui-puzzle-choose-name'>选择难度</text>
+      <text class='tui-puzzle-choose-name'>选择关卡</text>
       <view class='tui-puzzle-btn' wx:key="typekey" data-type="{{item.id}}" bindtap='getType' wx:for="{{levelArr}}">{{item.text}}</view>
-
-      <button bindtap="selectImage">选取图片</button>
-
-
     </view>
     <!--选择图片  -->
     <view class='tui-puzzle-choose' style="height:{{HEIGHT}}px;width:{{WIDTH}}px;position:relative;float:left;background:url('../../src/images/puzzle-bg.jpg') no-repeat  0px 0px/{{WIDTH}}px {{HEIGHT}}px;box-sizing:border-box;padding:20px;">

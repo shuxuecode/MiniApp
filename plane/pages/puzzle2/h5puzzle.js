@@ -1,10 +1,8 @@
 class Puzzle {
   constructor(page, opts) {
     opts = opts || {};
-    // page 小程序的page对象
     this.page = page;
     this.type = opts.type || 3;
-    // this.type = 99;
     this.width = 0;
     this.height = 0;
 
@@ -15,10 +13,8 @@ class Puzzle {
     wx.getSystemInfo({
       success(res) {
         _this.page.setData({
-          // 屏幕尺寸
           WIDTH: res.windowWidth,
           HEIGHT: res.windowHeight,
-          // type 切割成几块
           width: res.windowWidth / _this.type,
           height: res.windowHeight / _this.type
         });
@@ -26,8 +22,8 @@ class Puzzle {
         _this.height = res.windowHeight / _this.type;
       }
     });
-    this.originX = 0; // 图片块的x坐标 
-    this.originY = 0; // 图片块的y坐标
+    this.originX = 0;
+    this.originY = 0;
     this.originPX = 0;
     this.originPY = 0;
     this.currentX = 0;
@@ -59,8 +55,6 @@ class Puzzle {
         count++;
       }
     }
-    // console.info('typeArr')
-    // console.info(arr)
     this.typeArr = arr;
   }
   randomArr(){
@@ -110,15 +104,8 @@ class Puzzle {
       _this.originPY = val.py;
       _this.currentX = e.touches[0].pageX;
       _this.currentY = e.touches[0].pageY;
-
     }
     page.onTouchMove = function(e){
-      // console.info(e.touches[0])
-      // console.info(1)
-      // console.info(_this.currentX)
-      // console.info(_this.currentY)
-      // console.info(1)
-      
       let x = parseInt(e.touches[0].pageX / _this.width), y = parseInt(e.touches[0].pageY / _this.height);
       let cx = e.touches[0].pageX, cy = e.touches[0].pageY;
       let cgx = cx - _this.currentX, cgy = cy - _this.currentY;
@@ -129,14 +116,9 @@ class Puzzle {
         status: true,
         currentX: _this.originX + cgx,
         currentY: _this.originY + cgy,
-        // currentPX: _this.originPX,
-        // currentPY: _this.originPY
+        currentPX: _this.originPX,
+        currentPY: _this.originPY
       })
-      // console.info(_this.page.data.currentX)
-      console.info(_this.page.data.currentY)
-      // console.info(_this.page.data.currentPX)
-      // console.info(_this.page.data.currentPY)
-      console.debug()
     }
     page.onTouchEnd = function(e){
       // console.info(_this)
@@ -165,8 +147,7 @@ class Puzzle {
       _this.currentY = 0;
       
       if(_this.checkWin()){
-        // let text = '恭喜您，您已成为' + page.data.levelArr[_this.type - 2].text + '的人！是否继续闯关？';
-        let text = '恭喜您，是否继续闯关？';
+        let text = '恭喜您，您已成为' + page.data.levelArr[_this.type - 2].text + '的人！是否继续闯关？';
         wx.showModal({
           title: '过关提醒',
           content: text,
@@ -175,12 +156,6 @@ class Puzzle {
               _this.type++;
               _this.init();
             } else if (res.cancel){
-              // todo
-              _this.page.setData({
-                trans: 0            
-              })
-              return
-
               wx.showToast({
                 title: '您将永远成为一个' + page.data.levelArr[_this.type - 2].text,
                 success(){
