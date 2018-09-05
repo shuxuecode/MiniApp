@@ -1,0 +1,7 @@
+<!--page/home/index.wxml-->
+<button bindtap='choose' > 请选择一张图片 </button>
+<image src='{{imgSrc1}}' style='height:20%'></image>
+<button bindtap='upload' > {{loadingText}} </button>
+<image src='{{imgSrc2}}'></image>
+<!-- <text>{{uploadText}}</text> -->
+
