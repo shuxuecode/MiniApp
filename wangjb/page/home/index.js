@@ -1,4 +1,5 @@
 // page/home/index.js
+var num = 0;
 Page({
 
   /**
@@ -8,6 +9,7 @@ Page({
     imgSrc: '',
     imgSrc1: '',
     imgSrc2: '',
+    uuid: '',
     uploadText: '',
     loadingText: '生成图片'
   },
@@ -30,8 +32,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var obj = JSON.parse('{"a":"aa"}');
-    console.log(obj)
+    // var obj = JSON.parse('{"a":"aa"}');
+    // console.log(obj)
+    var that = this;
+
+    // setTimeout(function () { 
+      
+    //   that.setData({
+    //     loadingText: '生成图片22'
+    //   })
+    // }, 4000)
+
+    
+  },
+
+  getImage: function () {
+    var that = this;
+    setTimeout(function () {
+      num++;
+      if (num < 4 && that.data.imgSrc2 == ''){
+        that.showImage()
+        that.setData({
+          loadingText: '尝试获取图片第(' + num + ')次'
+        })
+        that.getImage()
+        
+      }
+    }, 10000)
   },
 
   /**
@@ -107,10 +134,11 @@ Page({
           console.log(json)
           if (json.code == 200) {
             that.setData({
-              imgSrc2: json.data
+              // imgSrc2: json.data
+              uuid: json.data
             })
+            that.getImage()
           }
-
         }
         //do something
       }
@@ -125,11 +153,39 @@ Page({
       console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
       if (res.progress && res.progress == 100){
         that.setData({
-          loadingText: '图片生成成功'
+          loadingText: '图片正在后台处理中'
         })
       }
     })
 
 
+  },
+
+  showImage: function(){
+    var that = this;
+    wx.request({
+      url: 'https://www.funimg.top/funimg/upload/check',
+      method: 'GET',
+      data: {uuid: this.data.uuid},
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        var data = res.data
+        console.log(data)
+        if (data) {
+          // var json = JSON.parse(data);
+          if (data.code == 200) {
+            that.setData({
+              imgSrc2: data.data,
+              loadingText: '图片马赛克成功'
+            })
+          }
+        }
+      },
+      fail: function (res) {
+        
+      }
+    })
   }
 })
