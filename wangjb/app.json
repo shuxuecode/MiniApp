@@ -1,6 +1,8 @@
 {
   "pages": [
+    "page/demo1/index",
     "page/home/index"
+    
   ],
   "window": {
     "navigationBarTextStyle": "black",
