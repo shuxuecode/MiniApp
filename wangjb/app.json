@@ -1,6 +1,8 @@
 {
   "pages": [
     "page/demo1/index",
+    "page/audio/audio",
+    
     "page/home/index"
     
   ],

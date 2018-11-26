@@ -1,0 +1,25 @@
+<view class="audio">
+    <image class="bg" src="{{audio_article.lessonImg}}"></image>
+    <image mode="aspectFill" class="poster" src="{{audio_article.lessonImg}}"></image>
+    <view class="control-process">
+        <text class="current-process">{{current_process}}</text>
+        <slider class="slider" 
+            bindchange="hanle_slider_change" 
+            bindtouchstart="handle_slider_move_start" 
+            bindtouchend="handle_slider_move_end" 
+            min="0" 
+            block-size="16" 
+            max="{{slider_max}}" 
+            activeColor="#fff" 
+            backgroundColor="rgba(255,255,255,.3)" 
+            value="{{slider_value}}"
+        />
+        <text class="total-process">{{total_process}}</text>
+    </view>
+    <view class="icon-list ">
+        <image bindtap="prev" mode="widthFix" src="{{is_first_page?'/images/audio_prev_no.png':'/images/audio_prev.png'}}" class="audio-icon"></image>
+        <image mode="widthFix" src="{{is_play? '/images/audio_play.png': '/images/audio_paused.png'}}" class="audio-icon audio-play" bindtap="audio_play"></image>
+        <image bindtap="next" mode="widthFix" src="{{is_last_page?'/images/audio_next_no.png':'/images/audio_next.png'}}" class="audio-icon"></image>
+        <image hidden mode="widthFix" class="pattern" src="{{is_loop ? '/images/audio_loop.png': '/images/audio_un_loop.png'}}" bindtap="play_loop"></image>
+    </view>
+</view>
