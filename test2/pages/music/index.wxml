@@ -1,0 +1,30 @@
+<!--pages/music/index.wxml-->
+<!-- <text>pages/music/index.wxml</text> -->
+
+
+<image src='https://wx4.sinaimg.cn/orj360/a8d43f7ely1fxh6ni65hvj20ic0cuwgz.jpg'></image>
+
+<audio  src="{{src}}" id="myAudio" ></audio>
+
+<progress percent="80" percent='{{playProgress}}' />
+<view>{{duration}}</view>
+
+<button class='btn' type="primary" bindtap="audioPlay" hidden='{{playStatus}}'>播放</button>
+<button class='btn' type="primary" bindtap="audioPause" hidden='{{pauseStatus}}'>暂停</button>
+
+
+
+<view class='title'> 测试标题——测试标题 </view>
+
+<view class='author'> 作者 </view>
+
+<textarea>
+
+1、第一行内容
+
+2、第二行内容
+
+3、第三行内容
+
+</textarea>
+

@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/music/index",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "播放小demo",
+    "navigationBarTextStyle": "black"
+  }
+}
