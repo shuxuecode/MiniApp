@@ -32,6 +32,11 @@ App({
         }
       }
     })
+
+    // 在调用云开发各 API 前，需先调用初始化方法 init 一次（全局只需一次）
+    wx.cloud.init({
+      env: 'env-675567'
+    })
   },
   globalData: {
     userInfo: null

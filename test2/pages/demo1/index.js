@@ -12,7 +12,10 @@ Page({
   data: {
     audiolist: [
       {
-        audiosrc: 'http://other.web.rh01.sycdn.kuwo.cn/resource/n2/16/17/450264753.mp3',
+        //audiosrc: 'http://other.web.rh01.sycdn.kuwo.cn/resource/n2/16/17/450264753.mp3',
+        audiosrc: 'cloud://env-675567.656e-env-675567-1258728439/0f887df1-9a96-6665-1670-f34b50b99309.mp3',
+
+        
         coverimg: "https://goss.veer.com/creative/vcg/veer/800water/veer-146156021.jpg"
       }
     ],
@@ -44,6 +47,22 @@ Page({
   onShow: function () {
     this.Initialization();
     this.loadaudio();
+
+
+
+    const db = wx.cloud.database()
+    db.collection('dataList')
+    .get({
+      success(res) {
+        console.log(res.data)
+        console.log(res.data[0])
+        console.log(res.data[0].array)
+        for (var i = 0, len = res.data[0].array.length; i<len; i++){
+          console.info(res.data[0].array[i].id)
+          console.info(res.data[0].array[i].name)
+        }
+      }
+    })
   },
 
   //初始化播放器，获取duration

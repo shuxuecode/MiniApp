@@ -1,0 +1,13 @@
+<!--pages/upload/index.wxml-->
+<text>pages/upload/index.wxml</text>
+
+<button bindtap='upload'>123</button>
+
+<image src='cloud://env-675567.656e-env-675567-1258728439/4ce61472-2d46-b87a-8a51-0217f5eeb106.gif' ></image>
+
+
+
+
+
+
+cloud://env-675567.656e-env-675567-1258728439/0f887df1-9a96-6665-1670-f34b50b99309.mp3
