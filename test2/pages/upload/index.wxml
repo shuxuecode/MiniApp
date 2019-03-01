@@ -1,13 +1,31 @@
 <!--pages/upload/index.wxml-->
-<text>pages/upload/index.wxml</text>
-
-<button bindtap='upload'>123</button>
-
-<image src='cloud://env-675567.656e-env-675567-1258728439/4ce61472-2d46-b87a-8a51-0217f5eeb106.gif' ></image>
+<!-- <text>pages/upload/index.wxml</text> -->
 
 
+<i-panel title="基础用法">
+  <i-input value="{{ title }}" title="标题" autofocus placeholder="请输入标题" maxlength="20" bind:change="titleInput" />
+  <i-input value="{{ author }}" title="作者" placeholder="请输入作者" maxlength="10" bind:change="authorInput" />
+  <i-input value="{{ summary }}" title="简介" placeholder="请输入简介(最多20字)" maxlength="20" bind:change="summaryInput" />
+</i-panel>
+
+<i-panel title="封面">
+  <i-button bind:click="uploadImage" type="info" inline="true" size="small">请选择一张图片</i-button>
+  <view>{{pictureTip}}</view>
+</i-panel>
+
+<i-panel title="音频">
+  <i-button bind:click="choiceMp3" type="primary" inline="true" size="small">请选择一段音频</i-button>
+  <view>{{urlTip}}</view>
+</i-panel>
+
+<i-panel title="内容">
+  <i-tag>标签一</i-tag>
+  <i-input value="{{ content }}" type="textarea" placeholder="请输入主要内容（最多500字）" maxlength="500" bind:change="contentInput"/>
+</i-panel>
 
 
 
+<i-button bind:click="save" type="success" shape="circle" size="large">保存</i-button>
 
-cloud://env-675567.656e-env-675567-1258728439/0f887df1-9a96-6665-1670-f34b50b99309.mp3
+<!-- <image src='cloud://env-675567.656e-env-675567-1258728439/4ce61472-2d46-b87a-8a51-0217f5eeb106.gif' ></image> -->
+

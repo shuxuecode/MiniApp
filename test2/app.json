@@ -1,10 +1,14 @@
 {
   "pages": [
-   
+    
+    
+    "pages/home/home",
+    "pages/record/index",
     "pages/demo1/index",
     "pages/upload/index",
     "pages/music/index",
     "pages/index/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

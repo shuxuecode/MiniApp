@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
+	"libVersion": "2.6.1",
 	"appid": "wxbc6e55a1c09739ad",
 	"projectname": "test2",
 	"debugOptions": {
@@ -28,13 +28,38 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 2,
+			"list": [
+				{
+					"id": -1,
+					"name": "上传",
+					"pathName": "pages/upload/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "播放",
+					"pathName": "pages/demo1/index",
+					"query": "id=XHjXk8DR1TiNmnPg",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "录音",
+					"pathName": "pages/record/index",
+					"scene": null
+				}
+			]
 		}
 	}
 }

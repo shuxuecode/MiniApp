@@ -1,0 +1,14 @@
+<!--pages/home/home.wxml-->
+
+
+<i-button bind:click="gotoUpload" size="small">上传</i-button>
+
+<view wx:for="{{dataList}}" wx:key="">
+
+
+
+  <i-card title="{{item.title}}" full="true" thumb="../../assets/MP3.png" bindtap="handleClick" data-id="{{item._id}}">
+    <view slot="content">{{item.summary}}</view>
+  </i-card>
+
+</view>

@@ -61,13 +61,7 @@
 
 
 <view class="main">
-  <view class='title'> 阿里的人才盘点怎么盘？一文讲透！ </view>
-
-  <view class='author'> 言言 </view>
-
-  <text>双11过后，紧挨着就是复盘以及对于明年双11战略的部署。但是同时，也是阿里每年人才盘点的时间段。马云曾说过：“阿里巴巴越做越大，资产是桌子、椅子，每天盘一遍。为什么不对人才盘一遍？人也只是集团的资产，所以每年要盘一下，就是要看一看，到底人有没有增值？”我们来看看阿里的人才盘点是怎么做的。
-
-  来源：微语微言
-  版权归原作者所有，如有侵权请联系删除
-  </text>
+  <view class='title'> {{title}} </view>
+  <view class='author'> {{author}} </view>
+  <text>{{content}}</text>
 </view>

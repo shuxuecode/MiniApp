@@ -13,8 +13,9 @@ Page({
     audiolist: [
       {
         //audiosrc: 'http://other.web.rh01.sycdn.kuwo.cn/resource/n2/16/17/450264753.mp3',
-        audiosrc: 'cloud://env-675567.656e-env-675567-1258728439/0f887df1-9a96-6665-1670-f34b50b99309.mp3',
+        // audiosrc: 'cloud://env-675567.656e-env-675567-1258728439/0f887df1-9a96-6665-1670-f34b50b99309.mp3',
 
+ audiosrc:'cloud://env-675567.656e-env-675567-1258728439/7695e548-1822-9b1e-fb6e-86e027795904.mp3',
         
         coverimg: "https://goss.veer.com/creative/vcg/veer/800water/veer-146156021.jpg"
       }
@@ -24,14 +25,45 @@ Page({
     audioDuration: 0,
     showTime1: '00:00',
     showTime2: '00:00',
-    audioTime: 0
+    audioTime: 0,
+
+    //
+    title: '',
+    author: '',
+    content: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this;
+    console.info(options.id)
 
+
+    const db = wx.cloud.database()
+    db.collection('dataList')
+      .where({ _id: options.id})
+      .get({
+        success(res) {
+          console.log(res.data[0])
+
+          let data = res.data[0];
+
+          that.setData({
+            audiolist:[{
+              coverimg: data.picture,
+              audiosrc: data.url
+            }],
+            title: data.title,
+            author: data.author,
+            content: data.content            
+          })
+
+          that.onShowAfter();
+          
+        }
+      })
   },
 
   /**
@@ -45,24 +77,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    
+  },
+
+  onShowAfter: function(){
     this.Initialization();
     this.loadaudio();
-
-
-
-    const db = wx.cloud.database()
-    db.collection('dataList')
-    .get({
-      success(res) {
-        console.log(res.data)
-        console.log(res.data[0])
-        console.log(res.data[0].array)
-        for (var i = 0, len = res.data[0].array.length; i<len; i++){
-          console.info(res.data[0].array[i].id)
-          console.info(res.data[0].array[i].name)
-        }
-      }
-    })
   },
 
   //初始化播放器，获取duration
@@ -208,4 +228,7 @@ Page({
   onShareAppMessage: function () {
 
   }
+
+
+  
 })

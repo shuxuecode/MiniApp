@@ -14,6 +14,14 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const getuid = function(){
+  function S4() {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+  }
+  return (S4() + "-" + S4());
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  getuid: getuid
 }
