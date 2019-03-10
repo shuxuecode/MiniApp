@@ -1,0 +1,35 @@
+<!--miniprogram/pages/album/index.wxml-->
+<!-- <text>miniprogram/pages/album/index.wxml</text> -->
+
+
+<view style='margin-top: 20px;'>
+
+  <view class='flex-view' style='{{albumWidth}}'>
+    <view class='cover-cls' style='{{imgHeight}}' bindtap='createAlbum'>
+      <image src='../../images/default.png' mode='aspectFill' style='{{imgHeight}}'></image>
+    </view>
+    <view class='title-cls'>
+      
+    </view>
+    <view class='total-cls'>
+      
+    </view>
+  </view>
+
+  <!-- for 循环 -->
+  <view class='flex-view' style='{{albumWidth}}' wx:for="{{albumList}}" wx:key="" >
+    <view class='cover-cls' style='{{imgHeight}}' data-id="{{item._id}}" bindtap='gotoPhoto'>
+      <image src='{{item.cover}}' mode='aspectFill' style='{{imgHeight}}'></image>
+    </view>
+    <view class='title-cls'>
+      {{item.name}}
+    </view>
+    <view class='total-cls'>
+      {{item.total}}张
+    </view>
+  </view>
+
+
+
+
+</view>

@@ -1,0 +1,15 @@
+<!--miniprogram/pages/photo/index.wxml-->
+<text>miniprogram/pages/photo/index.wxml</text>
+
+
+
+<view style='margin-top: 20px;'>
+
+  <!-- for 循环 -->
+  <view class='flex-view' style='{{imgWidth}}' wx:for="{{list}}" wx:key="" >
+    <view class='cover-cls' style='{{imgHeight}}' data-id="{{item._id}}" bindtap='gotoPhoto'>
+      <image src='{{item.url}}' mode='aspectFill' style='{{imgHeight}}'></image>
+    </view>
+  </view>
+
+</view>

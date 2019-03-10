@@ -1,0 +1,13 @@
+/* miniprogram/pages/photo/index.wxss */
+
+
+image {
+  width: 100%;
+}
+
+.flex-view {
+  float: left;
+  width: 28%;
+  /* border: 1px solid; */
+  padding: 3px;
+}

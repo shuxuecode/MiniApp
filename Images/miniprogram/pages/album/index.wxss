@@ -1,0 +1,38 @@
+/* miniprogram/pages/album/index.wxss */
+
+page {
+  font-family: Microsoft YaHei;
+  /* background-color: #f2f2f2; */
+}
+
+
+image {
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+.flex-view {
+  float: left;
+  width: 42%;
+  /* border: 1px solid; */
+  padding: 10px;
+}
+
+.cover-cls {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.title-cls {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 6px;
+  margin-bottom: 3px;
+  font-size: 16px;
+}
+
+.total-cls {
+  text-align: center;
+  color: #ccc;
+  font-size: 12px;
+}
