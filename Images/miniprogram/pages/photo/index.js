@@ -161,5 +161,62 @@ Page({
       current: url, // 当前显示图片的http链接
       urls: urls // 需要预览的图片http链接列表
     })
+  },
+
+  uploadPhoto: function(){
+    let that = this;
+
+    var uuid = util.getuid();
+
+    wx.chooseImage({
+      count: 1, // 最多可以选择的图片张数
+      sizeType: ['original', 'compressed'], // 所选的图片的尺寸
+      sourceType: ['album', 'camera'], // 选择图片的来源
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        console.log(tempFilePaths)
+
+        var filePath = res.tempFilePaths[0];
+
+        var index1 = filePath.lastIndexOf(".");
+        var index2 = filePath.length;
+        var suffix = filePath.substring(index1 + 1, index2); //后缀名
+
+        // console.log(suffix)
+
+        var tempName = uuid + '.' + suffix;
+
+        wx.showLoading({
+          title: '上传中',
+          mask: true
+        })
+
+        // 将图片上传至云存储空间
+        wx.cloud.uploadFile({
+          // 指定上传到的云路径
+          cloudPath: tempName,
+          // 指定要上传的文件的小程序临时文件路径
+          filePath: filePath,
+          // 成功回调
+          success: res => {
+            wx.hideLoading()
+            console.log('上传成功', res)
+            // console.log('上传成功', res.statusCode)
+            console.log('上传成功', res.fileID)
+
+            that.save(res.fileID)
+            // that.setData({
+            //   picture: res.fileID,
+            //   pictureTip: res.fileID
+            // })
+
+          },
+          fail: res => {
+            wx.hideLoading()
+          }
+        })
+      }
+    })
   }
 })
