@@ -13,3 +13,18 @@
   </view>
 
 </view>
+
+
+
+
+<cover-view class="toolbar">
+  <!-- <cover-view class="goto-back" bindtap="gotoHome">编辑相册</cover-view> -->
+  <!-- <cover-view class="wechat" bindtap="likeStar" data-id="{{house.id}}">
+    <cover-view>
+      <cover-image class='star-cls' src="{{starUrl}}"></cover-image>
+      <cover-view class='star-txt'>{{starTxt}}</cover-view>
+    </cover-view>
+  </cover-view> -->
+  <cover-view style="width:75%;"></cover-view>
+  <cover-view class="upload-cls" bindtap="upload">上传照片</cover-view>
+</cover-view>

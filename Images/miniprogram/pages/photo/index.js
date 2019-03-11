@@ -104,9 +104,9 @@ Page({
       })
       .get({
         success(res) {
-          console.log(res.data)
-          console.log(res.data[0])
-          console.log(res.data[0].list)
+          // console.log(res.data)
+          // console.log(res.data[0])
+          // console.log(res.data[0].list)
 
           that.getPhoto(res.data[0].list)
 
@@ -131,7 +131,7 @@ Page({
       .orderBy('createtime', 'desc')
       .get({
         success(res) {
-          console.log(res.data)
+          // console.log(res.data)
           // console.log(res.data[0])
           // console.log(res.data[0].list)
 
@@ -147,8 +147,6 @@ Page({
     var url = e.currentTarget.dataset.url;
 
     var urls = new Array();
-
-    
 
     const list = that.data.list;
     for (let obj of list) {
