@@ -7,7 +7,7 @@
 
   <!-- for 循环 -->
   <view class='flex-view' style='{{imgWidth}}' wx:for="{{list}}" wx:key="" >
-    <view class='cover-cls' style='{{imgHeight}}' data-url="{{item.url}}" bindtap='showPhoto'>
+    <view class='cover-cls' style='{{imgHeight}}' data-url="{{item.url}}" data-index="{{index+1}}" bindtap='showPhoto'>
       <image src='{{item.url}}' mode='aspectFill' style='{{imgHeight}}'></image>
     </view>
   </view>

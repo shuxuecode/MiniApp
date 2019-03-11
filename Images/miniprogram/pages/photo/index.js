@@ -143,10 +143,25 @@ Page({
   },
 
   showPhoto: function(e){
+    let that = this;
     var url = e.currentTarget.dataset.url;
+
+    var urls = new Array();
+
+    
+
+    const list = that.data.list;
+    for (let obj of list) {
+      // console.log(obj.url)
+      urls.push(obj.url)
+    }
+    
+    
+    console.info(urls)
+
     wx.previewImage({
-      // current: '', // 当前显示图片的http链接
-      urls: [url] // 需要预览的图片http链接列表
+      current: url, // 当前显示图片的http链接
+      urls: urls // 需要预览的图片http链接列表
     })
   }
 })
