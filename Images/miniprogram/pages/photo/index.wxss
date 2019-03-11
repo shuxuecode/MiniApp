@@ -31,5 +31,4 @@ image {
   width: 25%;
   background-color: yellow;
   line-height:100rpx;
-  border-radius: 20rpx;
 }
