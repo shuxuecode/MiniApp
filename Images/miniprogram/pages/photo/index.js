@@ -1,4 +1,6 @@
 // miniprogram/pages/photo/index.js
+var util = require('../../utils/util.js')
+
 Page({
 
   /**
@@ -163,6 +165,7 @@ Page({
     })
   },
 
+
   uploadPhoto: function(){
     let that = this;
 
@@ -173,17 +176,11 @@ Page({
       sizeType: ['original', 'compressed'], // 所选的图片的尺寸
       sourceType: ['album', 'camera'], // 选择图片的来源
       success(res) {
-        // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths
-        console.log(tempFilePaths)
-
         var filePath = res.tempFilePaths[0];
 
         var index1 = filePath.lastIndexOf(".");
         var index2 = filePath.length;
         var suffix = filePath.substring(index1 + 1, index2); //后缀名
-
-        // console.log(suffix)
 
         var tempName = uuid + '.' + suffix;
 
@@ -205,12 +202,7 @@ Page({
             // console.log('上传成功', res.statusCode)
             console.log('上传成功', res.fileID)
 
-            that.save(res.fileID)
-            // that.setData({
-            //   picture: res.fileID,
-            //   pictureTip: res.fileID
-            // })
-
+            // that.save(res.fileID)
           },
           fail: res => {
             wx.hideLoading()
