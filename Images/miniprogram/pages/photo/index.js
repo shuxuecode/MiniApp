@@ -7,6 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    albumId: '',
+    linkId: '',
+    photoIdList: [],
     list: [],
     imgWidth: '',
     imgHeight: ''
@@ -18,6 +21,9 @@ Page({
   onLoad: function(options) {
     console.info(options.id)
     this.loadPhoto(options.id)
+    this.setData({
+      albumId: options.id
+    })
   },
 
   /**
@@ -32,9 +38,9 @@ Page({
    */
   onShow: function() {
     let that = this;
-    
+
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         var windowWidth = res.windowWidth;
         console.log("屏幕宽度为：" + windowWidth);
 
@@ -51,8 +57,8 @@ Page({
       }
     })
 
-    
-    
+
+
 
   },
 
@@ -96,7 +102,7 @@ Page({
   // ************ 自定义方法 ***************
   // **************************************
 
-  loadPhoto: function (albumId){
+  loadPhoto: function(albumId) {
     let that = this;
     const db = wx.cloud.database()
 
@@ -106,21 +112,25 @@ Page({
       })
       .get({
         success(res) {
-          // console.log(res.data)
-          // console.log(res.data[0])
-          // console.log(res.data[0].list)
+          console.log(res.data)
+          console.log(res.data[0])
+
+          console.log(res.data[0].list)
+
+          // photoIdList
 
           that.getPhoto(res.data[0].list)
 
-          // that.setData({
-          //   albumList: res.data
-          // })
+          that.setData({
+            linkId: res.data[0]._id,
+            photoIdList: res.data[0].list
+          })
         }
       })
   },
 
 
-  getPhoto: function(idList){
+  getPhoto: function(idList) {
     let that = this;
     const db = wx.cloud.database({
       env: 'env-image-fc1e7b'
@@ -144,7 +154,7 @@ Page({
       })
   },
 
-  showPhoto: function(e){
+  showPhoto: function(e) {
     let that = this;
     var url = e.currentTarget.dataset.url;
 
@@ -155,8 +165,8 @@ Page({
       // console.log(obj.url)
       urls.push(obj.url)
     }
-    
-    
+
+
     console.info(urls)
 
     wx.previewImage({
@@ -166,7 +176,7 @@ Page({
   },
 
 
-  uploadPhoto: function(){
+  uploadPhoto: function() {
     let that = this;
 
     var uuid = util.getuid();
@@ -202,7 +212,7 @@ Page({
             // console.log('上传成功', res.statusCode)
             console.log('上传成功', res.fileID)
 
-            // that.save(res.fileID)
+            that.save(res.fileID)
           },
           fail: res => {
             wx.hideLoading()
@@ -210,5 +220,99 @@ Page({
         })
       }
     })
+  },
+
+  save: function(fileID) {
+
+    let createtime = new Date().getTime();
+
+    wx.showLoading({
+      title: '正在保存',
+      mask: true
+    })
+
+    this.addPhoto(fileID, createtime);
+  },
+
+
+  addPhoto: function(fileID, createtime) {
+    let that = this;
+
+    const db = wx.cloud.database()
+    db.collection('photo')
+      .add({
+        data: {
+          url: fileID,
+          createtime: createtime
+        },
+        success(res) {
+          console.log(res)
+          console.log(res._id)
+
+          // 保存相册和图片的关系
+          that.addAlbumPhotoLink(createtime, res._id)
+
+        },
+        fail: console.error
+      })
+  },
+
+  addAlbumPhotoLink: function(createtime, photoId) {
+    let that = this;
+
+    let list = this.data.photoIdList
+    list.unshift(photoId)
+
+    let size = list.length
+
+    let albumId = this.data.albumId
+    let id = this.data.linkId
+
+    const db = wx.cloud.database()
+    db.collection('album_photo_link').doc(id)
+      .update({
+        data: {
+          album: albumId,
+          list: list,
+          createtime: createtime
+        },
+        success(res) {
+          wx.hideLoading();
+
+          console.log(res)
+
+          that.loadPhoto(albumId)
+          
+
+          wx.showModal({
+            title: '提示',
+            content: '保存成功',
+            showCancel: false
+          })
+
+          // 更新相册的照片张数
+          that.updateAlbum(albumId, size)
+
+        },
+        fail: console.error
+      })
+
+  },
+
+  updateAlbum: function (albumId, photoSize){
+    let that = this;
+
+    const db = wx.cloud.database()
+    db.collection('album').doc(albumId)
+      .update({
+        data: {
+          total: photoSize
+        },
+        success(res) {
+          console.log(res)
+        },
+        fail: console.error
+      })
+
   }
 })
