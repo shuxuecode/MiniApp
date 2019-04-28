@@ -11,6 +11,8 @@
 	"appid": "wxbc6e55a1c09739ad",
 	"projectname": "Images",
 	"libVersion": "2.6.2",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
