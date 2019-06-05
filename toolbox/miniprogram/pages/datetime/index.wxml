@@ -2,9 +2,20 @@
 <text>miniprog/datetime/index.wxml2</text>
 <view class="section">
   <view class="section__title">日期选择器</view>
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+  <picker mode="date" value="{{date}}" bindchange="bindDateChange">
     <view class="picker">
       当前选择: {{date}}
     </view>
   </picker>
+
+  <view class="">
+    <view class="section__title">相差天数</view>
+
+    <input type="number" value='{{value}}' bindinput="bindKeyInput"/>
+  </view>
+
+  <button type="primary" size="default" plain="true"
+   bindtap="cala" hover-class="other-button-hover"> 计算 </button>
+
+  <view>{{res}}</view>
 </view>

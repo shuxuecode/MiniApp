@@ -9,6 +9,8 @@ Page({
    */
   data: {
     date: '2016-09-01',
+    value: "0",
+    res:''
   },
 
   /**
@@ -29,7 +31,31 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate()
 
+    console.log(year);
+    console.log(month);
+    console.log(day);
+
+    let time = year + '-';
+    if(month < 10){
+      time+='0'
+    }
+    time += '' + month + '-'
+
+    if(day < 10){
+      time += '0'
+    }
+    time += '' + day + ''
+
+    console.info(time)
+
+    this.setData({
+      date: time
+    })
   },
 
   /**
@@ -74,8 +100,32 @@ Page({
     })
   },
 
+  bindKeyInput: function(e){
+    // console.log(e)
+    // e.detail.value
+    this.setData({
+      value: e.detail.value
+    })
 
-  cala: function(year, mon, day, num){
+  },
+
+  cala: function () {
+    
+    let ttt = new Date(this.data.date).getTime() + this.data.value * 24000 * 3600;
+
+    let theday = new Date();
+
+    theday.setTime(ttt);
+
+    var res = theday.getFullYear() + "年" + (theday.getMonth() + 1) + "月" + theday.getDate() + "日" + " 星期" + weeks[theday.getDay()]
+
+    console.log(res)
+    this.setData({
+      res: res
+    })
+  },
+
+  cala2: function(year, mon, day, num){
     let ttt = new Date(year, mon - 1, day).getTime() + num * 24000 * 3600;
 
     let theday = new Date();
