@@ -6,22 +6,50 @@
     <view>test content</view>
 </mp-dialog> -->
 
-<mp-form-page title="表单结构" subtitle="展示表单页面的信息结构样式, 分别由头部区域/控件区域/提示区域/操作区域和底部信息区域组成。">
-    <mp-form id="form" rules="{{rules}}" models="{{formData}}">
-    </mp-form>
-    <checkbox-group slot="tips" bindchange="bindAgreeChange">
-        <label class="weui-agree" for="weuiAgree">
-            <view class="weui-agree__text">
-                <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
-                <view class="weui-agree__checkbox-icon">
-                    <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
-                </view>
-                阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
+<view class="weui-form">
+  <view class="weui-form__text-area">
+    <view class="weui-form__title">表单标题</view>
+    <view class="weui-form__desc">表单描述示意</view>
+  </view>
+  <view class="weui-form__control-area">
+    <view class="weui-cells__group weui-cells__group_form">
+        <view class="weui-cells__title">输入框</view>
+        <view class="weui-cells weui-cells_form">
+          <view class="weui-cell">
+            <view class="weui-cell__hd"><label class="weui-label">QQ号</label></view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入QQ号"/>
             </view>
-        </label>
-    </checkbox-group>
-    <view slot="button">
-        <button class="weui-btn" type="primary" bindtap="submitForm">确定</button>
+          </view>
+        </view>
     </view>
-</mp-form-page>
+  </view>
+  <view class="weui-form__tips-area">
+    <label for="weuiAgree" class="weui-agree">
+      <input id="weuiAgree" type="checkbox" class="weui-agree__checkbox"/><span class="weui-agree__text">阅读并同意<a href="javascript:void(0);">《相关条款》</a>
+      </span>
+    </label>
+  </view>
+  <view class="weui-form__opr-area">
+    <button type="primary">确定</button>
+  </view>
+  <view class="weui-form__tips-area">
+    <view class="weui-form__tips">
+      点击下一步即表示<navigator href="javascript:;">同意用户协议</navigator>
+    </view>
+  </view>
+  <view class="weui-form__extra-area">
+    <view class="weui-footer">
+      <view class="weui-footer__links">
+        <navigator href="javascript:void(0);" class="weui-footer__link">底部链接文本</navigator>
+      </view>
+      <view class="weui-footer__text">Copyright © 2008-2019 weui.io</view>
+    </view>
+  </view>
+</view>
 
+
+
+<!-- <mp-dialog title="test" show="{{true}}" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消2'}, {text: '确认3'}]}}">
+    <view>test content</view>
+</mp-dialog> -->
