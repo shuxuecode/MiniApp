@@ -85,6 +85,20 @@
           "id": -1,
           "name": "pages/userInfo/index",
           "pathName": "pages/userInfo/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/home/home",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/userList/index",
+          "pathName": "pages/userList/index",
           "scene": null
         }
       ]

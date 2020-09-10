@@ -1,0 +1,31 @@
+<view class="page" data-weui-theme="{{}}">
+  <view class="page__hd">
+    <view class="page__title">List</view>
+    <view class="page__desc">列表</view>
+  </view>
+  <view class="page__bd">
+
+    <view class="weui-cells__title">带说明、跳转的列表项</view>
+    <view class="weui-cells weui-cells_after-title">
+      <navigator url="/pages/userConsole/userConsole" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">cell standard</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">说明文字</view>
+      </navigator>
+      <navigator url="/pages/openapi/openapi" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">cell standard</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">说明文字</view>
+      </navigator>
+    </view>
+
+
+    <view class="btn-area">
+      <navigator url="/miniprogram/pages/userConsole/userConsole?title=navigate" hover-class="navigator-hover">跳转到新页面</navigator>
+      <navigator url="../../redirect/redirect/redirect?title=redirect" open-type="redirect" hover-class="other-navigator-hover">在当前页打开</navigator>
+      <navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover">切换 Tab</navigator>
+      <navigator target="miniProgram" open-type="navigate" app-id="" path="" extra-data="" version="release">打开绑定的小程序
+      </navigator>
+    </view>
+
+
+  </view>
+</view>
