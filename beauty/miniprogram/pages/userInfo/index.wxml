@@ -1,2 +1,33 @@
 <!--miniprogram/pages/userInfo/index.wxml-->
 <text>miniprogram/pages/userInfo/index.wxml</text>
+123
+
+<button>123</button>
+
+
+请使用 <button open-type="getUserInfo">授权</button>
+
+<view class="container">
+  <form bindsubmit="submit" bindreset="reset">
+    <view>
+      <input name="input" placeholder="姓名" />
+    </view>
+    <view>
+      <view class="section__title">日期选择器</view>
+      <picker mode="date" name="date" value="{{date}}" start="2000-01-01" end="2099-12-31" bindchange="bindDateChange">
+    <view class="picker">
+      当前选择: {{date}}
+    </view>
+  </picker>
+    </view>
+    <view>
+      <textarea name="content" auto-height placeholder="输入内容" maxlength="-1"></textarea>
+    </view>
+
+    <view>
+      <button type="primary" form-type="submit">保存</button>
+      <button form-type="reset">清空</button>
+    </view>
+  </form>
+
+</view>
