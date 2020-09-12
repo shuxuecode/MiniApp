@@ -1,10 +1,13 @@
 // miniprogram/pages/userList/index.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    theme: app.globalData.theme,
+    dataList: []
 
   },
 
@@ -12,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -26,7 +29,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
 
+    const db = wx.cloud.database()
+
+    db.collection('users').get().then(res => {
+      wx.hideLoading()
+      console.info(res.data)
+      if (res.data.length != 0) {
+        this.setData({
+          dataList: res.data
+        })
+      }
+    })
   },
 
   /**

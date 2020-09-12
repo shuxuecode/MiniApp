@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    inputShowed: false,
+    inputVal: ""
   },
 
   /**
@@ -37,24 +38,24 @@ Page({
 
 
     db.collection('user')
-    // .where({limit:20})
-    .get({
-      success: function(res){
-        console.info(res)
-      }
-    })
+      // .where({limit:20})
+      .get({
+        success: function (res) {
+          console.info(res)
+        }
+      })
 
     db.collection('user').add({
-      // data 字段表示需新增的 JSON 数据
-      data: {
-        name: "learn cloud database",
-        openid2: new Date("2018-09-01"),
-        done: false
-      }
-    })
-    .then(res => {
-      console.log(res)
-    })
+        // data 字段表示需新增的 JSON 数据
+        data: {
+          name: "learn cloud database",
+          openid2: new Date("2018-09-01"),
+          done: false
+        }
+      })
+      .then(res => {
+        console.log(res)
+      })
   },
 
   /**
@@ -90,5 +91,31 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+
+  // ===================================
+  // ===================================
+  // ===================================
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
   }
 })

@@ -89,9 +89,9 @@
           "scene": null
         },
         {
-          "id": -1,
-          "name": "pages/home/home",
-          "pathName": "pages/home/home",
+          "id": 4,
+          "name": "pages/home/index",
+          "pathName": "pages/home/index",
           "query": "",
           "scene": null
         },
@@ -99,6 +99,14 @@
           "id": -1,
           "name": "pages/userList/index",
           "pathName": "pages/userList/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 6,
+          "name": "pages/form/index",
+          "pathName": "pages/form/index",
+          "query": "mobile=1",
           "scene": null
         }
       ]

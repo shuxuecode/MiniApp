@@ -1,8 +1,10 @@
 {
   "pages": [
-    "pages/userInfo/index",
+    
+    "pages/userList/index",
     "pages/demo/index",
-    "pages/home/home",
+    "pages/userInfo/index",
+    "pages/home/index",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -16,7 +18,7 @@
     "pages/openapi/cloudid/cloudid",
     "pages/im/im",
     "pages/im/room/room",
-    "pages/userList/index"
+    "pages/form/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -29,11 +31,11 @@
     "list": [
       {
         "text": "首页",
-        "pagePath": "pages/userInfo/index"
+        "pagePath": "pages/demo/index"
       },
       {
         "text": "首页",
-        "pagePath": "pages/home/home"
+        "pagePath": "pages/userInfo/index"
       },
       {
         "text": "设置",
