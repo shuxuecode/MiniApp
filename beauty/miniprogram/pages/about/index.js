@@ -1,18 +1,10 @@
-// miniprogram/pages/home/home.js
-var app = getApp()
+// miniprogram/pages/about/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    theme: app.globalData.theme,
-
-    background: ['cloud://test-454v5.7465-test-454v5-1303020964/微信图片_20200621122550 - ok.jpg', 'cloud://test-454v5.7465-test-454v5-1303020964/6ed16d53b10bd8a1978dfd672c2735a7.jpg', ''],
-    indicatorDots: true,
-    autoplay: true,
-    interval: 5000,
-    duration: 500
 
   },
 

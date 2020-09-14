@@ -1,48 +1,18 @@
-<!--miniprogram/pages/home/home.wxml-->
 <view class="page" data-weui-theme="{{theme}}">
-  <!--页头-->
   <view class="page__hd">
-    <view class="page__title">信息</view>
+    <view class="page__title">Flex</view>
+    <view class="page__desc">Flex布局</view>
   </view>
-  <!--主体-->
-  <view class="page__bd">
-    <view class="">
-      <form class="weui-cells weui-cells_form">
-
-        <view class="weui-cell">
-          <view class="weui-cell_hd"><label class="weui-label">姓名：</label></view>
-          <view class="weui-cell_bd weui-cell_primary">
-            <input class="weui-input" type="text" name="userName" value="{{userName}}" placeholder="请输入姓名" />
-          </view>
-        </view>
-
-        <view class="weui-cell weui-cell_active">
-          <view class="weui-cell__hd">
-            <view class="weui-label">日期</view>
-          </view>
-          <view class="weui-cell__bd">
-            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-              <view class="weui-input">{{date}}</view>
-            </picker>
-          </view>
-        </view>
-
-        <view class="weui-cell">
-						<view class="weui-cell__bd">
-							<textarea class="weui-textarea" placeholder="请输入内容" maxlength="-1"></textarea>
-							<!-- <view class="weui-textarea-counter"><text>0</text>/200</view> -->
-						</view>
-					</view>
-
-        <view class="weui-btn-area">
-          <button class="weui-btn" type="primary" form-type="submit">保存</button>
-          <!-- <button class="weui-btn" form-type="reset">清空</button> -->
-        </view>
-
-      </form>
+  <view class="page__bd page__bd_spacing">
+    <view class="page-section page-section-spacing swiper">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
+        duration="{{duration}}">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <image src="{{item}}" mode=""></image>
+          </swiper-item>
+        </block>
+      </swiper>
     </view>
   </view>
-  <!--没有页脚-->
-
-  <!-- <view class="weui-footer">我是页脚</view> -->
 </view>
