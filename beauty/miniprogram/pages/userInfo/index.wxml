@@ -4,6 +4,10 @@
 
 <button>123</button>
 
+<view class="uploader-text" bindtap="doUpload">
+  <text>上传图片</text>
+</view>
+
 
 请使用 <button open-type="getUserInfo">授权</button>
 
@@ -15,10 +19,10 @@
     <view>
       <view class="section__title">日期选择器</view>
       <picker mode="date" name="date" value="{{date}}" start="2000-01-01" end="2099-12-31" bindchange="bindDateChange">
-    <view class="picker">
-      当前选择: {{date}}
-    </view>
-  </picker>
+        <view class="picker">
+          当前选择: {{date}}
+        </view>
+      </picker>
     </view>
     <view>
       <textarea name="content" auto-height placeholder="输入内容" maxlength="-1"></textarea>
