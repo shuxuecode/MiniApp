@@ -31,7 +31,9 @@
     "list": [
       {
         "text": "首页",
-        "pagePath": "pages/demo/index"
+        "pagePath": "pages/demo/index",
+        "iconPath": "images/wechat.png",
+        "selectedIconPath": "images/wechatHL.png"
       },
       {
         "text": "首页",
