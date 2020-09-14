@@ -2,6 +2,18 @@
 <text>miniprogram/pages/about/index.wxml</text>
 <!--miniprogram/pages/home/home.wxml-->
 <view class="page" data-weui-theme="{{theme}}">
+
+
+  <!-- 用户 openid -->
+  <view class="userinfo">
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})" size="default"></button>
+    <view class="userinfo-nickname-wrapper">
+      <!-- <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button> -->
+    </view>
+  </view>
+
+
   <!--页头-->
   <view class="page__hd">
     <view class="page__title">信息</view>
