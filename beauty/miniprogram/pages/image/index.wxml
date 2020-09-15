@@ -1,0 +1,14 @@
+<!--miniprogram/pages/image/index.wxml-->
+<text>miniprogram/pages/image/index.wxml</text>
+
+<button class="weui-btn weui-btn_primary" bindtap="uploadImage" data-num="1">第一张图片</button>
+<image src="{{imageUrl1}}" wx:if="{{imageUrl1}}"></image>
+<text wx:if="{{imageUrl1 == ''}}">图片不存在</text>
+
+<button class="weui-btn weui-btn_primary" bindtap="uploadImage" data-num="2">第二张图片</button>
+<image src="{{imageUrl2}}" wx:if="{{imageUrl2}}"></image>
+<text wx:if="{{imageUrl2 == ''}}">图片不存在</text>
+
+<button class="weui-btn weui-btn_primary" bindtap="uploadImage" data-num="3">第三张图片</button>
+<image src="{{imageUrl3}}" wx:if="{{imageUrl3}}"></image>
+<text wx:if="{{imageUrl3 == ''}}">图片不存在</text>

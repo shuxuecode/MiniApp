@@ -34,7 +34,36 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let _this = this;
 
+    const db = wx.cloud.database()
+    const _ = db.command
+
+    db.collection('image').where({
+      type: _.in(["1", "2", "3"])
+    }).get().then(res => {
+      
+      console.info(res.data)
+
+      var list = _this.data.background
+
+      for(var i=0,len=res.data.length; i<len; i++){
+        var type = res.data[i].type
+        var url = res.data[i].url
+ 
+        if (type == 1) {
+          list[0] = url
+        } else if (type == 2) {
+          list[1] = url
+        } else if (type == 3) {
+          list[2] = url
+        }
+      }
+
+      _this.setData({
+        background: list
+      })
+    })
   },
 
   /**
