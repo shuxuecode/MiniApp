@@ -12,3 +12,7 @@
 <button class="weui-btn weui-btn_primary" bindtap="uploadImage" data-num="3">第三张图片</button>
 <image src="{{imageUrl3}}" wx:if="{{imageUrl3}}"></image>
 <text wx:if="{{imageUrl3 == ''}}">图片不存在</text>
+
+<button class="weui-btn weui-btn_primary" bindtap="uploadImage" data-num="4">首页广告大图</button>
+<image src="{{imageUrl4}}" wx:if="{{imageUrl4}}"></image>
+<text wx:if="{{imageUrl4 == ''}}">图片不存在</text>

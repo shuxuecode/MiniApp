@@ -12,7 +12,10 @@ Page({
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
-    duration: 500
+    duration: 500,
+
+
+    adImageUrl: ""
 
   },
 
@@ -40,7 +43,7 @@ Page({
     const _ = db.command
 
     db.collection('image').where({
-      type: _.in(["1", "2", "3"])
+      type: _.in(["1", "2", "3", "4"])
     }).get().then(res => {
       
       console.info(res.data)
@@ -57,6 +60,10 @@ Page({
           list[1] = url
         } else if (type == 3) {
           list[2] = url
+        } else if (type == 4) {
+          _this.setData({
+            adImageUrl: url
+          })
         }
       }
 

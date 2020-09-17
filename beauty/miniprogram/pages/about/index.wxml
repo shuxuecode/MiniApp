@@ -66,6 +66,11 @@
 
       </form>
     </view>
+
+    <view>
+      <button bindtap="gotoImage">首页轮播图片</button>
+      <!-- <navigator url="/pages/image/index" hover-class="navigator-hover"></navigator> -->
+    </view>
   </view>
   <!--没有页脚-->
 

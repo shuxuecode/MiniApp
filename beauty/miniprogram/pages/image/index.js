@@ -8,7 +8,8 @@ Page({
 
     imageUrl1: '',
     imageUrl2: '',
-    imageUrl3: ''
+    imageUrl3: '',
+    imageUrl4: ''
 
 
 
@@ -43,7 +44,7 @@ Page({
     const _ = db.command
 
     db.collection('image').where({
-      type: _.in(["1", "2", "3"])
+      type: _.in(["1", "2", "3", "4"])
     }).get().then(res => {
       wx.hideLoading()
       console.info(res.data)
@@ -63,6 +64,10 @@ Page({
         } else if (type == 3) {
           _this.setData({
             imageUrl3: url
+          })
+        } else if (type == 4) {
+          _this.setData({
+            imageUrl4: url
           })
         }
       }
@@ -170,6 +175,10 @@ Page({
     } else if (num == 3) {
       this.setData({
         imageUrl3: fileID
+      })
+    } else if (num == 4) {
+      this.setData({
+        imageUrl4: fileID
       })
     }
 

@@ -84,5 +84,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+
+
+  gotoImage: function () {
+    wx.navigateTo({
+      url: '/pages/image/index',
+    })
   }
 })
