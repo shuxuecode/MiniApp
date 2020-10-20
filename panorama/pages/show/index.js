@@ -20,20 +20,10 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wxPano.onReady = function () { //wxPano初始化完成后会触发此事件
-
-    }
-    wxPano.config({
-      panolist: [{
-        name: "xindamen",
-        // src: "https://i.loli.net/2020/10/13/ZYaNyPw6MgB7VFQ.jpg"
-        src: "https://s1.ax1x.com/2020/10/13/0Wo3T0.jpg"
-        // 
-      }],
-      request: wx.request,
-      loader: "GLLoader",
-      entryname: "xindamen"
-    });
+    let _this = this;
+   
+    _this.getData()
+    
   },
 
   /**
@@ -76,5 +66,58 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+
+
+  getData: function(){
+    let _this = this;
+
+
+    wx.request({
+      url: 'http://localhost:18080/api/funimg/panoDetail',
+      data: {
+        id: 1
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: (res) => {
+        console.log(res.data)
+        console.log(res.data.data)
+        console.log(res.data.data.title)
+        console.log(res.data.data.imgUrl)
+
+        _this.showPano(res.data.data.title, res.data.data.imgUrl);
+
+      },
+      fail: (res) => {
+        wx.showModal({
+          title: '错误',
+          content: '网络连接失败，请检查',
+          showCancel: false
+        })
+      }
+    })
+  },
+
+
+  showPano: function(title, url){
+    wxPano.onReady = function () { //wxPano初始化完成后会触发此事件
+
+    }
+    wxPano.config({
+      panolist: [{
+        name: "xindamen",
+        // name: title,
+        // src: "https://i.loli.net/2020/10/13/ZYaNyPw6MgB7VFQ.jpg"
+        // src: "https://s1.ax1x.com/2020/10/13/0Wo3T0.jpg"
+        src: url
+        // 
+      }],
+      request: wx.request,
+      loader: "GLLoader",
+      entryname: "xindamen"
+    });
   }
 })
