@@ -112,7 +112,7 @@ Page({
         // name: title,
         // src: "https://i.loli.net/2020/10/13/ZYaNyPw6MgB7VFQ.jpg"
         // src: "https://s1.ax1x.com/2020/10/13/0Wo3T0.jpg"
-        src: url
+        src: url + '?imageMogr2/thumbnail/!90p'
         // 
       }],
       request: wx.request,

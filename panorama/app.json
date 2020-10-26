@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/camera/index",
     "pages/show/index",
     "pages/index/index",
     "pages/logs/logs"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
