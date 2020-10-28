@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/camera2/index",
     "pages/camera/index",
     "pages/show/index",
     "pages/index/index",

@@ -82,17 +82,24 @@ Page({
     // })
 
 
-    const ctx = wx.createCameraContext()
-    ctx.takePhoto({
-      quality: 'high',
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      sourceType: ['camera'],
       success: (res) => {
+        
+        console.info(res)
+
+        var images = res.tempFilePaths;
+
+
         this.setData({
-          src: res.tempImagePath
+          src: images[0]
         })
 
         wx.uploadFile({
           url: 'http://localhost:8080/api/savePerson', //仅为示例，非真实的接口地址
-          filePath: res.tempImagePath,
+          filePath: images[0],
           name: 'image',
           formData: {
             'username': 'test'
@@ -103,7 +110,11 @@ Page({
             //do something
           }
         })
-      }
+      },
+      fail: (res) => {
+
+      },
+      complete: (res) => {}
     })
   }
 })
