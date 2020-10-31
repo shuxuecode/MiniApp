@@ -4,7 +4,8 @@
     "pages/camera/index",
     "pages/show/index",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/home/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

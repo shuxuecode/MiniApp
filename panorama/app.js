@@ -31,6 +31,20 @@ App({
           })
         }
       }
+    }),
+
+
+    wx.getSystemInfo({
+      success (res) {
+        console.info('wx.getSystemInfo ： ', res)
+        // console.log(res.model)
+        // console.log(res.pixelRatio)
+        // console.log(res.windowWidth)
+        // console.log(res.windowHeight)
+        // console.log(res.language)
+        // console.log(res.version)
+        // console.log(res.platform)
+      }
     })
   },
   globalData: {
