@@ -1,0 +1,9 @@
+<!--miniprogram/pages/beauty/user/info.wxml-->
+<text>miniprogram/pages/beauty/user/info.wxml</text>
+
+<input type="text" />
+
+
+
+
+<button bindtap="save">保存</button>
