@@ -26,21 +26,27 @@
       "disablePlugins": [],
       "outputPath": ""
     },
+    "enableEngineNative": false,
+    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
+<<<<<<< HEAD
     "minifyWXSS": true,
     "bundle": false
+=======
+    "minifyWXSS": true
+>>>>>>> 31a51a9f077578a57844756d40ca02d88a530498
   },
-  "appid": "wx756943eb9f54b2b1",
   "projectname": "beauty",
   "libVersion": "2.12.2",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "compileType": "miniprogram",
   "condition": {
     "search": {
       "list": []
